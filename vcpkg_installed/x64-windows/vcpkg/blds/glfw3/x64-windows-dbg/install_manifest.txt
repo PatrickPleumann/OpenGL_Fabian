@@ -1,0 +1,9 @@
+D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glfw3_x64-windows/debug/lib/glfw3dll.lib
+D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glfw3_x64-windows/debug/bin/glfw3.dll
+D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glfw3_x64-windows/debug/include/GLFW/glfw3.h
+D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glfw3_x64-windows/debug/include/GLFW/glfw3native.h
+D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glfw3_x64-windows/debug/lib/cmake/glfw3/glfw3Config.cmake
+D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glfw3_x64-windows/debug/lib/cmake/glfw3/glfw3ConfigVersion.cmake
+D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glfw3_x64-windows/debug/lib/cmake/glfw3/glfw3Targets.cmake
+D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glfw3_x64-windows/debug/lib/cmake/glfw3/glfw3Targets-debug.cmake
+D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glfw3_x64-windows/debug/lib/pkgconfig/glfw3.pc
