@@ -1,5 +1,6 @@
 #pragma once
 #include <glad/glad.h>
+#include "Shader.hpp"
 #include <functional>
 #include <memory>
 
@@ -41,4 +42,3 @@ public:
 private:
 	std::unique_ptr<Resource> m_resource;
 };
-
