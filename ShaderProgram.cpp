@@ -1,5 +1,6 @@
-#include "glad/glad.h"
 #include "ShaderProgram.hpp"
+#include "Shader.hpp"
+#include "glad/glad.h"
 
 ShaderProgram::ShaderProgram(const Shader& vertexShader, const Shader& fragmentShader)
 	: m_id{ glCreateProgram(), [](GLuint id) { glDeleteProgram(id); } }
@@ -11,4 +12,9 @@ ShaderProgram::ShaderProgram(const Shader& vertexShader, const Shader& fragmentS
 
 	glDetachShader(*m_id, vertexShader.get());
 	glDetachShader(*m_id, fragmentShader.get());
+}
+
+void ShaderProgram::use() const
+{
+	glUseProgram(*m_id);
 }

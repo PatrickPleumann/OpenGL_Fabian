@@ -130,10 +130,11 @@
   <ItemGroup>
     <ClCompile Include="DebugOutput.cpp" />
     <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="OpenGL_Fabian.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="UniqueResource.cpp" />
+    <ClCompile Include="VertexBuffer.cpp" />
     <ClCompile Include="Viewer3D.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +143,8 @@
     <ClInclude Include="Shader.hpp" />
     <ClInclude Include="ShaderProgram.hpp" />
     <ClInclude Include="UniqueResource.hpp" />
+    <ClInclude Include="Vertex.hpp" />
+    <ClInclude Include="VertexBuffer.hpp" />
     <ClInclude Include="Viewer3D.hpp" />
   </ItemGroup>
   <ItemGroup>
