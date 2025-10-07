@@ -8,9 +8,12 @@ public:
 	bool init();
 	void run();
 
+protected:
+	bool getKey(int key);
+
 private:
 	virtual void onCreate() = 0;
-	virtual void onUpdate() = 0;
+	virtual void onUpdate(float deltaTime) = 0;
 
 	GLFWwindow* window;
 };

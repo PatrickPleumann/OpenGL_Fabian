@@ -54,9 +54,14 @@ bool Engine::init()
 
 void Engine::run()
 {
+    double time{ 0.0 };
     while (!glfwWindowShouldClose(window))
     {
-        onUpdate();
+        auto now = glfwGetTime();
+        double deltaTime = now - time;
+        time = now;
+
+        onUpdate(deltaTime);
 
         glfwSwapBuffers(window);
 
@@ -64,4 +69,14 @@ void Engine::run()
     }
 
     glfwTerminate();
+}
+
+bool Engine::getKey(int key)
+{
+    if (!window)
+    {
+        return false;
+    }
+    return glfwGetKey(window, key) == GLFW_PRESS;
+
 }
