@@ -36,6 +36,7 @@ void Viewer3D::onUpdate(float deltaTime)
 		shaderProgram->addCameraTransform(m_camera.getViewTransform(), m_camera.m_projectionTransform);
 		shaderProgram->setModelTransform(glm::scale(glm::vec3{ 0.5f,0.5f,1.0f }) * glm::translate(glm::vec3{ 0.0f,0.0f,-2.0f }));
 		glDrawArrays(GL_TRIANGLES, 0, 3);
+	
 
 		shaderProgram->setModelTransform(glm::translate(glm::vec3{ 1.0f,0.0f,-2.0f }));
 		glDrawArrays(GL_TRIANGLES, 0, 3);
@@ -43,7 +44,7 @@ void Viewer3D::onUpdate(float deltaTime)
 }
 
 void Viewer3D::handleInput(float deltaTime)
-{
+{ 
 	const float speed = { 10.0f };
 	if (getKey(GLFW_KEY_W))
 	{
