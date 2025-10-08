@@ -1,7 +1,7 @@
-D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glad_x64-windows/debug/lib/glad.lib
-D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glad_x64-windows/debug/include/glad/glad.h
-D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glad_x64-windows/debug/include/KHR/khrplatform.h
-D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glad_x64-windows/debug/lib/cmake/glad/gladConfig.cmake
-D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glad_x64-windows/debug/lib/cmake/glad/gladConfigVersion.cmake
-D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glad_x64-windows/debug/lib/cmake/glad/gladTargets.cmake
-D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glad_x64-windows/debug/lib/cmake/glad/gladTargets-debug.cmake
+C:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glad_x64-windows/debug/lib/glad.lib
+C:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glad_x64-windows/debug/include/glad/glad.h
+C:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glad_x64-windows/debug/include/KHR/khrplatform.h
+C:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glad_x64-windows/debug/lib/cmake/glad/gladConfig.cmake
+C:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glad_x64-windows/debug/lib/cmake/glad/gladConfigVersion.cmake
+C:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glad_x64-windows/debug/lib/cmake/glad/gladTargets.cmake
+C:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glad_x64-windows/debug/lib/cmake/glad/gladTargets-debug.cmake

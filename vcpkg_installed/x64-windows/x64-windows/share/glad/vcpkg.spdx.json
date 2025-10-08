@@ -3,13 +3,13 @@
   "spdxVersion": "SPDX-2.2",
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
-  "documentNamespace": "https://spdx.org/spdxdocs/glad-x64-windows-0.1.36-1a44abe5-4c2e-43f8-9245-b4dacbd31a0f",
-  "name": "glad:x64-windows@0.1.36 028aff1477197c543ded2e5815bfbca932f8a3a7628e55c21990e1f57da367ef",
+  "documentNamespace": "https://spdx.org/spdxdocs/glad-x64-windows-0.1.36-393bc8d7-5ec1-47f9-a67f-c7f260d8a8df",
+  "name": "glad:x64-windows@0.1.36 2599ea2c21ac4f8b21e3f2d7f54d8a9d94fa510bd87d3d300c95a0701c90aedf",
   "creationInfo": {
     "creators": [
-      "Tool: vcpkg-2025-04-01-9c604254140797833b6f76908435c9fcbf09920e"
+      "Tool: vcpkg-2024-09-30-ab8988503c7cffabfd440b243a383c0a352a023d"
     ],
-    "created": "2025-09-30T16:01:32Z"
+    "created": "2025-10-08T09:05:26Z"
   },
   "relationships": [
     {
@@ -61,11 +61,6 @@
       "spdxElementId": "SPDXRef-file-3",
       "relationshipType": "CONTAINED_BY",
       "relatedSpdxElement": "SPDXRef-port"
-    },
-    {
-      "spdxElementId": "SPDXRef-file-3",
-      "relationshipType": "DEPENDENCY_MANIFEST_OF",
-      "relatedSpdxElement": "SPDXRef-port"
     }
   ],
   "packages": [
@@ -84,7 +79,7 @@
     {
       "name": "glad:x64-windows",
       "SPDXID": "SPDXRef-binary",
-      "versionInfo": "028aff1477197c543ded2e5815bfbca932f8a3a7628e55c21990e1f57da367ef",
+      "versionInfo": "2599ea2c21ac4f8b21e3f2d7f54d8a9d94fa510bd87d3d300c95a0701c90aedf",
       "downloadLocation": "NONE",
       "licenseConcluded": "MIT",
       "licenseDeclared": "NOASSERTION",
@@ -92,7 +87,7 @@
       "comment": "This is a binary package built by vcpkg."
     },
     {
-      "SPDXID": "SPDXRef-resource-0",
+      "SPDXID": "SPDXRef-resource-1",
       "name": "Dav1dde/glad",
       "downloadLocation": "git+https://github.com/Dav1dde/glad@1ecd45775d96f35170458e6b148eb0708967e402",
       "licenseConcluded": "NOASSERTION",
@@ -108,7 +103,7 @@
   ],
   "files": [
     {
-      "fileName": "./encoding.patch",
+      "fileName": "./C:/Users/patri/AppData/Local/vcpkg/registries/git-trees/fa93b14c1581057e1d14650f5f15c9b0757dd548/encoding.patch",
       "SPDXID": "SPDXRef-file-0",
       "checksums": [
         {
@@ -120,7 +115,7 @@
       "copyrightText": "NOASSERTION"
     },
     {
-      "fileName": "./find_python.patch",
+      "fileName": "./C:/Users/patri/AppData/Local/vcpkg/registries/git-trees/fa93b14c1581057e1d14650f5f15c9b0757dd548/find_python.patch",
       "SPDXID": "SPDXRef-file-1",
       "checksums": [
         {
@@ -132,7 +127,7 @@
       "copyrightText": "NOASSERTION"
     },
     {
-      "fileName": "./portfile.cmake",
+      "fileName": "./C:/Users/patri/AppData/Local/vcpkg/registries/git-trees/fa93b14c1581057e1d14650f5f15c9b0757dd548/portfile.cmake",
       "SPDXID": "SPDXRef-file-2",
       "checksums": [
         {
@@ -144,7 +139,7 @@
       "copyrightText": "NOASSERTION"
     },
     {
-      "fileName": "./vcpkg.json",
+      "fileName": "./C:/Users/patri/AppData/Local/vcpkg/registries/git-trees/fa93b14c1581057e1d14650f5f15c9b0757dd548/vcpkg.json",
       "SPDXID": "SPDXRef-file-3",
       "checksums": [
         {

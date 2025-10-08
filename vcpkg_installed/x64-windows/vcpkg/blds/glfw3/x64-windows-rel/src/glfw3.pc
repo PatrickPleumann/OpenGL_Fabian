@@ -1,7 +1,7 @@
-prefix=D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glfw3_x64-windows
+prefix=C:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glfw3_x64-windows
 exec_prefix=${prefix}
-includedir=D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glfw3_x64-windows/include
-libdir=D:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glfw3_x64-windows/lib
+includedir=C:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glfw3_x64-windows/include
+libdir=C:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/pkgs/glfw3_x64-windows/lib
 
 Name: GLFW
 Description: A multi-platform library for OpenGL, window and input
