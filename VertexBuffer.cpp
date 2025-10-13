@@ -1,6 +1,6 @@
 #include "VertexBuffer.hpp"
 
-VertexBuffer::VertexBuffer(const std::vector<Vertex> vertices)
+VertexBuffer::VertexBuffer(const std::vector<Vertex>& vertices)
 {
 	glBindVertexArray(*m_vao);
 	glBindBuffer(GL_ARRAY_BUFFER, *m_vbo);
@@ -16,9 +16,25 @@ VertexBuffer::VertexBuffer(const std::vector<Vertex> vertices)
 	glBindVertexArray(0);
 }
 
+VertexBuffer::VertexBuffer(const std::vector<Vertex> vertices, const std::vector<unsigned int> indices)
+	: VertexBuffer(vertices)
+{
+	m_hasIndexBuffer = true;
+	m_indexCount = indices.size();
+	glBindVertexArray(*m_vao);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *m_ebo);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
+
 void VertexBuffer::bind()
 {
 	glBindVertexArray(*m_vao);
+	if (m_hasIndexBuffer)
+	{
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *m_ebo);
+	}
 }
 
 GLuint VertexBuffer::createVertexArrayObject()
@@ -33,7 +49,7 @@ void VertexBuffer::deleteVertexArrayObject(GLuint id)
 	glDeleteVertexArrays(1, &id);
 }
 
-GLuint VertexBuffer::createVertexBuffer()
+GLuint VertexBuffer::createBuffer()
 {
 	GLuint id;
 	glGenBuffers(1, &id);
@@ -41,7 +57,7 @@ GLuint VertexBuffer::createVertexBuffer()
 }
 
 
-void VertexBuffer::deleteVertexBuffer(GLuint id)
+void VertexBuffer::deleteBuffer(GLuint id)
 {
 	glDeleteBuffers(1, &id);
 }

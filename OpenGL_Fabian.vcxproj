@@ -138,6 +138,7 @@
     <ClCompile Include="DebugOutput.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="UniqueResource.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="Camera.hpp" />
     <ClInclude Include="DebugOutput.hpp" />
     <ClInclude Include="Engine.hpp" />
+    <ClInclude Include="Mesh.hpp" />
     <ClInclude Include="Shader.hpp" />
     <ClInclude Include="ShaderProgram.hpp" />
     <ClInclude Include="UniqueResource.hpp" />
