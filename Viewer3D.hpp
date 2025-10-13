@@ -11,6 +11,7 @@ class Viewer3D : public Engine
 	void handleInput(float deltaTime);
 
 	std::optional<ShaderProgram> shaderProgram;
+
 	std::optional<VertexBuffer> vertexBufferTriangle;
 	std::optional<VertexBuffer> vertexBufferQuad;
 

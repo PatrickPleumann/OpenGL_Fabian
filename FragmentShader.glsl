@@ -5,5 +5,5 @@ in vec2 uvs;
 
 void main()
 {
-	fragColor = color * (1 - step(0.5,length(uvs)));
+	fragColor = color /* * (1 - step(0.5,length(uvs)))*/;
 }
