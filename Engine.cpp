@@ -29,7 +29,7 @@ bool Engine::init()
 	glfwWindowHint(GLFW_CONTEXT_DEBUG, GLFW_TRUE);
 #endif
 
-	window = glfwCreateWindow(640, 480, "Hello World", nullptr, nullptr);
+	window = glfwCreateWindow(1920, 1080, "Hello World", nullptr, nullptr);
 	if (!window)
 	{
 		glfwTerminate();

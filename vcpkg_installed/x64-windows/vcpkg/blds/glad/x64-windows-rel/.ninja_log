@@ -1,8 +1,0 @@
-# ninja log v6
-9	488	7816175257499667	include/glad/glad.h	c350b96de4c6464e
-9	488	7816175257499667	src/glad.c	c350b96de4c6464e
-9	488	7816175257499667	C:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/blds/glad/x64-windows-rel/include/glad/glad.h	c350b96de4c6464e
-9	488	7816175257499667	C:/SAE Abgaben/OpenGL_Fabian/vcpkg_installed/x64-windows/vcpkg/blds/glad/x64-windows-rel/src/glad.c	c350b96de4c6464e
-534	973	7816175259191051	CMakeFiles/glad.dir/src/glad.c.obj	16c47355c7e84f26
-974	1080	7816175263660785	glad.lib	1a216f879ef824a5
-1080	1250	7816175264715513	CMakeFiles/install.util	7902bfa917591d62

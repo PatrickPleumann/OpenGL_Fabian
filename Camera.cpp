@@ -7,7 +7,7 @@ glm::mat4 Camera::getViewTransform()
 
 glm::mat4 Camera::getProjectionTransform(float aspectRatio)
 {
-	return glm::mat4{ glm::perspective(glm::radians(60.0f), 640.0f / 480.0f, 0.1f, 100.0f) };
+	return glm::mat4{ glm::perspective(glm::radians(60.0f), 1920.0f / 1080.0f, 0.1f, 100.0f) };
 }
 
 glm::vec3 Camera::getDirection()
