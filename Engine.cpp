@@ -58,6 +58,8 @@ bool Engine::init()
 	//glEnable(GL_BLEND);
 	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC1_ALPHA);   // with alpha channel
 
+	glEnable(GL_DEPTH_TEST);
+
 	onCreate();
 	return true;
 }

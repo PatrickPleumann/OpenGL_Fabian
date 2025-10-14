@@ -13,6 +13,7 @@ namespace MeshData
 	Mesh getTriangle();
 
 	Mesh getQuad();
+	Mesh getCube();
 }
 
 

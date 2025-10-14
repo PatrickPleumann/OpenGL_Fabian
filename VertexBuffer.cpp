@@ -12,11 +12,14 @@ VertexBuffer::VertexBuffer(const std::vector<Vertex>& vertices)
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<void*>(sizeof(glm::vec3)));
 	glEnableVertexAttribArray(1);
 
+	glVertexAttribPointer(2,3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<void*>(offsetof(Vertex,Vertex::normal)));
+	glEnableVertexAttribArray(2);
+
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
+	glBindVertexArray(0); 
 }
 
-VertexBuffer::VertexBuffer(const std::vector<Vertex> vertices, const std::vector<unsigned int> indices)
+VertexBuffer::VertexBuffer(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices)
 	: VertexBuffer(vertices)
 {
 	m_hasIndexBuffer = true;

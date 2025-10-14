@@ -7,7 +7,8 @@ class Resource
 {
 public:
 
-	Resource(GLuint id, std::function<void(GLuint)> callOnDelete) : m_id{ id }, m_callOnDelete{ callOnDelete } {}
+	Resource(GLuint id, std::function<void(GLuint)> callOnDelete)
+		: m_id{ id }, m_callOnDelete{ callOnDelete } {}
 
 	~Resource()
 	{

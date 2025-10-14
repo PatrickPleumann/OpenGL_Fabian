@@ -10,7 +10,8 @@ public:
 	ShaderProgram(const Shader& vertexShader, const Shader& fragmentShader);
 	void use() const;
 
-	void addCameraTransform(const glm::mat4& viewTransform, const glm::mat4& projectionTransform);
+	void addCameraTransform(const glm::mat4& viewTransform, const glm::mat4& projectionTransform, 
+		const glm::vec3& cameraPos);
 	void setModelTransform(const glm::mat4& modelTransform);
 
 private:
@@ -21,5 +22,6 @@ private:
 	GLuint m_projectionTransformId;
 
 	GLuint m_modelTransformId;
+	GLuint m_cameraPos;
 };
 	

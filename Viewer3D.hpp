@@ -1,9 +1,11 @@
 #pragma once
+
 #include "Engine.hpp"
 #include "ShaderProgram.hpp"
-#include "VertexBuffer.hpp"
 #include <optional>
 #include "Camera.hpp"
+#include "Model.hpp"
+
 class Viewer3D : public Engine
 {
 	void onCreate() override;
@@ -12,8 +14,9 @@ class Viewer3D : public Engine
 
 	std::optional<ShaderProgram> shaderProgram;
 
-	std::optional<VertexBuffer> vertexBufferTriangle;
-	std::optional<VertexBuffer> vertexBufferQuad;
+	std::optional<Model> m_triangle;
+	std::optional<Model> m_quad;
+	std::optional<Model> m_cube;
 
 	Camera m_camera;
 

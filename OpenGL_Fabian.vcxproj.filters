@@ -74,9 +74,13 @@
     <ClInclude Include="Mesh.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Model.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="VertexShader.glsl" />
     <None Include="FragmentShader.glsl" />
+    <None Include="FragmentShader_Phong.glsl" />
   </ItemGroup>
 </Project>

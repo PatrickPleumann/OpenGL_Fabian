@@ -16,7 +16,8 @@ ShaderProgram::ShaderProgram(const Shader& vertexShader, const Shader& fragmentS
 	m_viewTransformId = glGetUniformLocation(*m_id, "viewTransformation");
 	m_projectionTransformId = glGetUniformLocation(*m_id, "projectionTransformation");
 
-	m_modelTransformId = glad_glGetUniformLocation(*m_id, "modelTransformation");
+	m_modelTransformId = glad_glGetUniformLocation(*m_id, "modelTransform");
+	m_cameraPos = glGetUniformLocation(*m_id, "viewPos");
 }
 
 void ShaderProgram::use() const
@@ -24,10 +25,12 @@ void ShaderProgram::use() const
 	glUseProgram(*m_id);
 }
 
-void ShaderProgram::addCameraTransform(const glm::mat4& viewTransform, const glm::mat4& projectionTransform)
+void ShaderProgram::addCameraTransform(const glm::mat4& viewTransform, const glm::mat4& projectionTransform, const glm::vec3& cameraPos)
 {
 	glUniformMatrix4fv(m_viewTransformId, 1, GL_FALSE, &viewTransform[0][0]);
 	glUniformMatrix4fv(m_projectionTransformId, 1, GL_FALSE, &projectionTransform[0][0]);
+
+	glUniform3f(m_cameraPos, cameraPos.x, cameraPos.y, cameraPos.z);
 }
 
 void ShaderProgram::setModelTransform(const glm::mat4& modelTransform)
