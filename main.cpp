@@ -1,6 +1,5 @@
 #include "Viewer3D.hpp"
 
-
 int main(void)
 {
 	Viewer3D viewer3D;

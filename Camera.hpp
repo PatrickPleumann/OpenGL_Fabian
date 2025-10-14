@@ -11,7 +11,6 @@ public:
 	glm::vec3 getDirection();
 
 	glm::vec3 position{.0f,.0f, -5.0f};
-	//glm::vec3 direction{0.0f, 0.0f, 1.0f};
 	glm::vec3 up{0.0f, 1.0f, 0.0f};
 
 	float yaw{ 0.0f };

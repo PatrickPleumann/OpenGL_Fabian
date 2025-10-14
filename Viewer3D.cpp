@@ -38,10 +38,12 @@ void Viewer3D::onUpdate(float deltaTime)
 
 		shaderProgram->use();
 
+
 		shaderProgram->addCameraTransform(m_camera.getViewTransform(), m_camera.getProjectionTransform(aspectRatio));
 		shaderProgram->setModelTransform(glm::scale(glm::vec3{ 0.5f,0.5f,1.0f }) * glm::translate(glm::vec3{ 0.0f,0.0f,-2.0f }));
 		shaderProgram->setModelTransform(glm::translate(glm::vec3{ 1.0f,0.0f,-2.0f }));
 
+		
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 
 
