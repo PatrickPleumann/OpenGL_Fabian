@@ -5,6 +5,7 @@
 #include "Vertex.hpp"
 #include "Mesh.hpp"
 #include "Model.hpp"
+#include "glm/ext/matrix_transform.hpp"
 
 
 void Viewer3D::onCreate()
@@ -25,7 +26,7 @@ void Viewer3D::onCreate()
 
 	Mesh cube = MeshData::getCube();
 	m_cube = Model
-	{ 
+	{
 		.m_vertexBuffer = VertexBuffer{cube.vertices, cube.indices},
 		.m_modelTransform = glm::translate(glm::vec3{3.0f,0.0f,-2.0f})
 	};
@@ -34,7 +35,7 @@ void Viewer3D::onCreate()
 	Shader fragmentShader("FragmentShader_Phong.glsl", GL_FRAGMENT_SHADER);
 	shaderProgram = ShaderProgram(vertexShader, fragmentShader);
 
-	
+
 
 }
 
@@ -45,7 +46,7 @@ void Viewer3D::onUpdate(float deltaTime)
 	const auto winSize = getWindowSize();
 	const float aspectRatio = winSize.x / winSize.y;
 
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); 
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	if (shaderProgram)
 	{
@@ -73,7 +74,7 @@ void Viewer3D::onUpdate(float deltaTime)
 			m_cube->m_vertexBuffer.bind();
 			shaderProgram->setModelTransform(m_cube->m_modelTransform);
 			glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_cube->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
-
+			m_cube->m_modelTransform = glm::rotate(m_cube->m_modelTransform, glm::radians(20 * deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
 		}
 	}
 }
@@ -109,7 +110,7 @@ void Viewer3D::handleInput(float deltaTime)
 	{
 		m_lastMousePos = mousePos;
 	}
-	const float angularSpeed = { 5.0f };
+	const float angularSpeed = { 20.0f };
 	//lock to window on click!!!
 	if (getMouseButton(0))    // to only move when left mouse button is clicked!
 	{

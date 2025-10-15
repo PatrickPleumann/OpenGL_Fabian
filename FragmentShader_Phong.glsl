@@ -16,13 +16,13 @@ void main()
 	float ambientStrength = 0.3f;
 	vec4 ambient = ambientStrength * lightColor;
 
-	float diffuseStrength = 1.0;
+	float diffuseStrength = 0.5;
 	vec3 lightDir = normalize(lightPos - vertexPos);
 
 	float diff = max(dot(lightDir, normal),0.0);
 	vec4 diffuse = diffuseStrength * diff * lightColor;
 
-	float specularStrength = 0.8;
+	float specularStrength = 0.5;
 	vec3 reflectDir = normalize(reflect(-lightDir, normal));
 	vec3 viewDir = normalize(viewPos - vertexPos);
 
