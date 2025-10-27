@@ -141,6 +141,7 @@
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="VertexBuffer.cpp" />
     <ClCompile Include="Viewer3D.cpp" />
   </ItemGroup>
@@ -152,6 +153,7 @@
     <ClInclude Include="Model.hpp" />
     <ClInclude Include="Shader.hpp" />
     <ClInclude Include="ShaderProgram.hpp" />
+    <ClInclude Include="Texture.hpp" />
     <ClInclude Include="UniqueResource.hpp" />
     <ClInclude Include="Vertex.hpp" />
     <ClInclude Include="VertexBuffer.hpp" />

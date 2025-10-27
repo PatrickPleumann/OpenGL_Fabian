@@ -21,7 +21,7 @@ void Viewer3D::onCreate()
 	m_quad = Model
 	{
 		.m_vertexBuffer = VertexBuffer { quad.vertices, quad.indices },
-		.m_modelTransform = glm::translate(glm::vec3{ 0.5f,0.5f,1.0f })
+		.m_modelTransform = glm::translate(glm::vec3{ 1.0f,0.0f,-2.0f })
 	};
 
 	Mesh cube = MeshData::getCube();
@@ -35,7 +35,7 @@ void Viewer3D::onCreate()
 	Shader fragmentShader("FragmentShader_Phong.glsl", GL_FRAGMENT_SHADER);
 	shaderProgram = ShaderProgram(vertexShader, fragmentShader);
 
-
+	m_texture = Texture(".\\assets\\woodNormal.jpg");  //ein Punkt bei gleicher Ordner Ebene .. bei ein Ordner darüber (in jedem Fall relationell)
 
 }
 
@@ -73,8 +73,12 @@ void Viewer3D::onUpdate(float deltaTime)
 		{
 			m_cube->m_vertexBuffer.bind();
 			shaderProgram->setModelTransform(m_cube->m_modelTransform);
-			glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_cube->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
 			m_cube->m_modelTransform = glm::rotate(m_cube->m_modelTransform, glm::radians(20 * deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
+			if (m_texture)
+			{
+				m_texture->bind(*shaderProgram, "baseColorTexture", 0);
+			}
+			glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_cube->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
 		}
 	}
 }

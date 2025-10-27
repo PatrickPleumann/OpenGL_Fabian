@@ -10,6 +10,7 @@ in vec3 vertexPos;
 uniform vec4 lightColor = {1.0f,1.0f,1.0f,1.0f};
 uniform vec3 lightPos = {10.0, 5.0, 10.0};
 uniform vec3 viewPos;
+uniform sampler2D baseColorTexture;
 
 void main()
 {
@@ -30,5 +31,5 @@ void main()
 
 	vec4 specular = specularStrength * spec * lightColor;
 
-	fragColor = (ambient + diffuse + specular) * vec4(0.3,0.3,0.1,1.0);
+	fragColor = (ambient + diffuse + specular) * texture(baseColorTexture,uvs);
 }

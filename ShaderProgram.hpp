@@ -13,6 +13,10 @@ public:
 	void addCameraTransform(const glm::mat4& viewTransform, const glm::mat4& projectionTransform, 
 		const glm::vec3& cameraPos);
 	void setModelTransform(const glm::mat4& modelTransform);
+	GLuint get() const
+	{
+		return *m_id;
+	}
 
 private:
 
