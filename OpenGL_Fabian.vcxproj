@@ -105,7 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp23</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,7 +123,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp23</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -137,10 +137,12 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DebugOutput.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Image.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
+    <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="VertexBuffer.cpp" />
     <ClCompile Include="Viewer3D.cpp" />
@@ -149,10 +151,12 @@
     <ClInclude Include="Camera.hpp" />
     <ClInclude Include="DebugOutput.hpp" />
     <ClInclude Include="Engine.hpp" />
+    <ClInclude Include="Image.hpp" />
     <ClInclude Include="Mesh.hpp" />
     <ClInclude Include="Model.hpp" />
     <ClInclude Include="Shader.hpp" />
     <ClInclude Include="ShaderProgram.hpp" />
+    <ClInclude Include="Skybox.hpp" />
     <ClInclude Include="Texture.hpp" />
     <ClInclude Include="UniqueResource.hpp" />
     <ClInclude Include="Vertex.hpp" />
@@ -162,6 +166,8 @@
   <ItemGroup>
     <None Include="FragmentShader.glsl" />
     <None Include="FragmentShader_Phong.glsl" />
+    <None Include="SkyboxFragmentShader.glsl" />
+    <None Include="SkyboxVertexShader.glsl" />
     <None Include="VertexShader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

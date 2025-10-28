@@ -5,10 +5,12 @@
 class Camera
 {
 public:
-	glm::mat4 getViewTransform();
-	glm::mat4 getProjectionTransform(float aspectRatio);
+	glm::mat4 getViewTransform() const;
+	glm::mat4 calcProjectionTransform(float aspectRatio);
 
-	glm::vec3 getDirection();
+	glm::vec3 getDirection() const;
+
+	glm::mat4 projectionTransform{ 1.0f };
 
 	glm::vec3 position{.0f,.0f, -5.0f};
 	glm::vec3 up{0.0f, 1.0f, 0.0f};

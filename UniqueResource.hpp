@@ -23,7 +23,7 @@ public:
 	GLuint operator*() const
 	{
 		return m_id;
-	}
+	} 
 private:
 
 	GLuint m_id;
@@ -40,8 +40,9 @@ public:
 
 	GLuint operator*() const
 	{
+		//constructor grants that **m_resource is not nullptr
 		return **m_resource;
-	}
+	} 
 
 private:
 

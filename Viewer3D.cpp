@@ -7,7 +7,6 @@
 #include "Model.hpp"
 #include "glm/ext/matrix_transform.hpp"
 
-
 void Viewer3D::onCreate()
 {
 	Mesh triangle = MeshData::getTriangle();
@@ -35,8 +34,9 @@ void Viewer3D::onCreate()
 	Shader fragmentShader("FragmentShader_Phong.glsl", GL_FRAGMENT_SHADER);
 	shaderProgram = ShaderProgram(vertexShader, fragmentShader);
 
-	m_texture = Texture(".\\assets\\woodNormal.jpg");  //ein Punkt bei gleicher Ordner Ebene .. bei ein Ordner darüber (in jedem Fall relationell)
+	m_texture = Texture(".\\assets\\Treebark_Normal.jpg");  //ein Punkt bei gleicher Ordner Ebene .. bei ein Ordner darüber (in jedem Fall relationell)
 
+	m_skyBox = Skybox();
 }
 
 void Viewer3D::onUpdate(float deltaTime)
@@ -51,7 +51,7 @@ void Viewer3D::onUpdate(float deltaTime)
 	if (shaderProgram)
 	{
 		shaderProgram->use();
-		shaderProgram->addCameraTransform(m_camera.getViewTransform(), m_camera.getProjectionTransform(aspectRatio), m_camera.position);
+		shaderProgram->addCameraTransform(m_camera.getViewTransform(), m_camera.calcProjectionTransform(aspectRatio), m_camera.position);
 
 		if (m_triangle)
 		{
@@ -68,7 +68,6 @@ void Viewer3D::onUpdate(float deltaTime)
 			glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_quad->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
 
 		}
-
 		if (m_cube)
 		{
 			m_cube->m_vertexBuffer.bind();
@@ -80,6 +79,13 @@ void Viewer3D::onUpdate(float deltaTime)
 			}
 			glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_cube->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
 		}
+	}
+	
+	if (m_skyBox)
+	{
+		glDepthMask(GL_FALSE);
+		m_skyBox->draw(m_camera);
+		glDepthMask(GL_TRUE);
 	}
 }
 
@@ -126,3 +132,4 @@ void Viewer3D::handleInput(float deltaTime)
 	}
 	m_lastMousePos = mousePos;
 }
+

@@ -6,6 +6,7 @@
 #include "Camera.hpp"
 #include "Model.hpp"
 #include "Texture.hpp"
+#include "Skybox.hpp"
 
 class Viewer3D : public Engine
 {
@@ -22,5 +23,7 @@ class Viewer3D : public Engine
 	Camera m_camera;
 
 	std::optional<glm::vec2> m_lastMousePos;
+
+	std::optional<Skybox> m_skyBox;
 };
 
