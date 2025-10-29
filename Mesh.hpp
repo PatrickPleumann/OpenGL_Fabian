@@ -4,8 +4,8 @@
 class Mesh
 {
 public:
-	std::vector<Vertex> vertices;
-	std::vector<unsigned int> indices;
+	std::vector<Vertex> vertices; // siehe Vertex
+	std::vector<unsigned int> indices;    // open gl standardmaessig gegen den Uhrzeigersinn
 };
 
 namespace MeshData

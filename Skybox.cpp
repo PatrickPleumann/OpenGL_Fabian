@@ -10,11 +10,11 @@ namespace
 {
 	const std::array<std::string, 6> c_imageNames
 	{
-		".\\assets\\Skybox\\right.jpg"
-		".\\assets\\Skybox\\left.jpg"
-		".\\assets\\Skybox\\top.jpg"
-		".\\assets\\Skybox\\bottom.jpg"
-		".\\assets\\Skybox\\front.jpg"
+		".\\assets\\Skybox\\right.jpg",
+		".\\assets\\Skybox\\left.jpg",
+		".\\assets\\Skybox\\top.jpg",
+		".\\assets\\Skybox\\bottom.jpg",
+		".\\assets\\Skybox\\front.jpg",
 		".\\assets\\Skybox\\back.jpg"
 	};
 }
@@ -42,17 +42,18 @@ Skybox::Skybox()
 			glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 			glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 
-			glTexImage2D(static_cast<GLenum>(GL_TEXTURE_CUBE_MAP), 0, GL_RGBA8, image.width, image.height, 0, GL_RGBA8, GL_UNSIGNED_BYTE, image.buffer);
+			glTexImage2D(static_cast<GLenum>(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i), 0, GL_RGBA8, image.width, image.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image.buffer);
 
 		}
 	}
 	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 	//Shader anlegen
-	ShaderProgram
+	m_shaderProgram = ShaderProgram
 	(
 		Shader("SkyboxVertexShader.glsl", GL_VERTEX_SHADER),
 		Shader("SkyboxFragmentShader.glsl", GL_FRAGMENT_SHADER)
 	);
+	
 }
 
 void Skybox::draw(const Camera& camera)

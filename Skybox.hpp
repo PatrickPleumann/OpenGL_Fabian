@@ -12,7 +12,7 @@ public:
 
 private:
 	std::optional<Model> m_model;
-	std::optional<ShaderProgram> m_shaderProgram;
+	std::optional<ShaderProgram> m_shaderProgram; 
 	UniqueResource m_texId
 	{
 		[] {GLuint id; glGenTextures(1,&id); return id;}(),

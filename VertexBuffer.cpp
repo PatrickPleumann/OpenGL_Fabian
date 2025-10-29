@@ -3,6 +3,7 @@
 
 VertexBuffer::VertexBuffer(const std::vector<Vertex>& vertices)
 {
+	//VAO = Verkapselung und Zusammenfassung von VBO(vertices) & EBO(indices)
 	glBindVertexArray(*m_vao);
 	glBindBuffer(GL_ARRAY_BUFFER, *m_vbo);
 	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), vertices.data(), GL_STATIC_DRAW);
@@ -21,6 +22,7 @@ VertexBuffer::VertexBuffer(const std::vector<Vertex>& vertices)
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0); 
+	// In Summe weiss die GraKa dann wo was ist im zu malenden Array 
 }
 
 VertexBuffer::VertexBuffer(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices)

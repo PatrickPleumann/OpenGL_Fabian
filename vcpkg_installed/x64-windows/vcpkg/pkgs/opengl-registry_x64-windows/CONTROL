@@ -4,5 +4,5 @@ Port-Version: 1
 Depends: egl-registry
 Architecture: x64-windows
 Multi-Arch: same
-Abi: 47f350684babbe159b38849b0edd5dc62b6cfe8281120e557729dfb9f8e333a1
+Abi: 90285f6a31f2b7bb017e2c300e9d552497fb6ba616ec0dd7961c4edd850659df
 Description: OpenGL, OpenGL ES, and OpenGL ES-SC API and Extension Registry

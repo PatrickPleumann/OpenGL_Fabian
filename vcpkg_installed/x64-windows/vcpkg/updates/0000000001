@@ -1,0 +1,8 @@
+Package: stb
+Version: 2024-07-29
+Port-Version: 1
+Architecture: x64-windows
+Multi-Arch: same
+Abi: beb1a3c5c4f6e9b841f1bf3f638776ece7fcd92d7f374c30fb03f7897e66e4b3
+Description: public domain header-only libraries
+Status: purge ok not-installed
