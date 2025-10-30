@@ -2,6 +2,7 @@
 #include <glad/glad.h>
 #include <filesystem>
 #include "UniqueResource.hpp"
+
 class Shader
 {
 public:
