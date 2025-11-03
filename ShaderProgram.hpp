@@ -7,6 +7,7 @@ class ShaderProgram
 {
 public:
 
+	//will 2 Shader haben um erzeugt zu werden. Die "GLuint" ID ist eine UniqueResource
 	ShaderProgram(const Shader& vertexShader, const Shader& fragmentShader);
 
 	void use() const;

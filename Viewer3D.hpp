@@ -19,7 +19,9 @@ class Viewer3D : public Engine
 	std::optional<Model> m_triangle;
 	std::optional<Model> m_quad;
 	std::optional<Model> m_cube;
+	
 	std::optional<Texture> m_texture;
+
 	Camera m_camera;
 
 	std::optional<glm::vec2> m_lastMousePos;

@@ -72,7 +72,7 @@ void Viewer3D::onUpdate(float deltaTime)
 		{
 			m_cube->m_vertexBuffer.bind();
 			shaderProgram->setModelTransform(m_cube->m_modelTransform);
-			m_cube->m_modelTransform = glm::rotate(m_cube->m_modelTransform, glm::radians(20 * deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
+			//m_cube->m_modelTransform = glm::rotate(m_cube->m_modelTransform, glm::radians(20 * deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
 			if (m_texture)
 			{
 				m_texture->bind(*shaderProgram, "baseColorTexture", 0);

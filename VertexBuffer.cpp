@@ -22,7 +22,7 @@ VertexBuffer::VertexBuffer(const std::vector<Vertex>& vertices)
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0); 
-	// In Summe weiss die GraKa dann wo was ist im zu malenden Array 
+	// In Summe weiﬂ die GraKa dann wo was ist im zu malenden Array 
 }
 
 VertexBuffer::VertexBuffer(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices)
