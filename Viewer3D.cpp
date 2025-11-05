@@ -6,7 +6,6 @@
 #include "Mesh.hpp"
 #include "Model.hpp"
 #include "glm/ext/matrix_transform.hpp"
-#include "GameObject.hpp"
 
 void Viewer3D::onCreate()
 {
@@ -38,9 +37,6 @@ void Viewer3D::onCreate()
 	m_texture = Texture(".\\assets\\Treebark_Normal.jpg");  //ein Punkt bei gleicher Ordner Ebene .. bei ein Ordner darüber (in jedem Fall relationell)
 
 	m_skyBox = Skybox();
-
-	//GameObject obj(0.0f, 0.0f, 3.0f);
-
 }
 
 void Viewer3D::onUpdate(float deltaTime)
@@ -49,6 +45,7 @@ void Viewer3D::onUpdate(float deltaTime)
 
 	const auto winSize = getWindowSize();
 	const float aspectRatio = winSize.x / winSize.y;
+
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -60,8 +57,10 @@ void Viewer3D::onUpdate(float deltaTime)
 
 		if (m_cube)
 		{
+
 			m_cube->m_vertexBuffer.bind();
 			shaderProgram->setModelTransform(m_cube->m_modelTransform);
+			m_cube->m_modelTransform = glm::rotate(m_cube->m_modelTransform, glm::radians(20 * deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
 			if (m_texture)
 			{
 				m_texture->bind(*shaderProgram, "baseColorTexture", 0);
@@ -69,8 +68,7 @@ void Viewer3D::onUpdate(float deltaTime)
 			glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_cube->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
 		}
 	}
-	
-			//m_cube->m_modelTransform = glm::rotate(m_cube->m_modelTransform, glm::radians(20 * deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
+
 	if (m_skyBox)
 	{
 		glDepthMask(GL_FALSE);
@@ -82,7 +80,6 @@ void Viewer3D::onUpdate(float deltaTime)
 void Viewer3D::handleInput(float deltaTime)
 {
 	const float speed = { 10.0f };
-
 
 	//encapsulate GLWF_keys into separate class 
 	if (getKey(GLFW_KEY_W))
@@ -103,6 +100,16 @@ void Viewer3D::handleInput(float deltaTime)
 	{
 		m_camera.position += -glm::normalize(glm::cross(m_camera.up, m_camera.getDirection())) * deltaTime * speed;
 	}
+	if (getKey(GLFW_KEY_SPACE))
+	{
+		m_camera.position += -glm::normalize(glm::cross(m_camera.down, m_camera.getDirection())) * deltaTime * speed;
+	}
+
+	if (getKey(GLFW_KEY_LEFT_CONTROL))
+	{
+		m_camera.position += glm::normalize(glm::cross(m_camera.down, m_camera.getDirection())) * deltaTime * speed;
+	}
+
 
 	glm::vec2 mousePos = getMousePos();
 
@@ -111,7 +118,8 @@ void Viewer3D::handleInput(float deltaTime)
 		m_lastMousePos = mousePos;
 	}
 	const float angularSpeed = { 20.0f };
-	//lock to window on click!!!
+
+
 	if (getMouseButton(0))    // to only move when left mouse button is clicked!
 	{
 		auto offset = *m_lastMousePos - mousePos;

@@ -12,7 +12,7 @@ public:
 
 private:
 	UniqueResource m_id
-	{  //lambda
+	{
 		[] {GLuint id; glGenTextures(1,&id); return id; }(),
 		[] (GLuint id) { glDeleteTextures(1,&id); }
 	};

@@ -8,22 +8,11 @@
 #include <optional>
 #include "VertexBuffer.hpp"
 #include "GlobalShader.hpp"
+#include "Texture.hpp"
+#include "Camera.hpp"
 
 class GameObject
 {
-public:
 
-	GameObject(float transformX, float transformY, float transformZ);
-	GameObject(float transformX, float transformY, float transformZ, Mesh _mesh);
-	~GameObject();
-
-	void InitializeGameObject();
-
-	Transform transform{};
-private:
-
-	
-	std::optional<Model> model;
-	GlobalShader shader;
 };
 
