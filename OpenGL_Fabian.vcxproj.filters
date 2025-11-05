@@ -51,6 +51,9 @@
     <ClCompile Include="Image.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.hpp">
@@ -93,6 +96,15 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Image.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

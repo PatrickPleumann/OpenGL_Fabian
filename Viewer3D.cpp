@@ -20,14 +20,14 @@ void Viewer3D::onCreate()
 	m_quad = Model
 	{
 		.m_vertexBuffer = VertexBuffer { quad.vertices, quad.indices },
-		.m_modelTransform = glm::translate(glm::vec3{ 1.0f,0.0f,-2.0f })
+		.m_modelTransform = glm::translate(glm::vec3{ 2.0f,0.0f,0.0f })
 	};
 
 	Mesh cube = MeshData::getCube();
 	m_cube = Model
 	{
 		.m_vertexBuffer = VertexBuffer{cube.vertices, cube.indices},
-		.m_modelTransform = glm::translate(glm::vec3{3.0f,0.0f,-2.0f})
+		.m_modelTransform = glm::translate(glm::vec3{0.0f,0.0f,0.0f})
 	};
 
 	Shader vertexShader("VertexShader.glsl", GL_VERTEX_SHADER);
@@ -53,26 +53,26 @@ void Viewer3D::onUpdate(float deltaTime)
 		shaderProgram->use();
 		shaderProgram->addCameraTransform(m_camera.getViewTransform(), m_camera.calcProjectionTransform(aspectRatio), m_camera.position);
 
-		if (m_triangle)
-		{
-			m_triangle->m_vertexBuffer.bind();
-			shaderProgram->setModelTransform(m_triangle->m_modelTransform);
-			glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_triangle->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
+		//if (m_triangle)
+		//{
+		//	m_triangle->m_vertexBuffer.bind();
+		//	shaderProgram->setModelTransform(m_triangle->m_modelTransform);
+		//	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_triangle->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
 
-		}
+		//}
 
-		if (m_quad)
-		{
-			m_quad->m_vertexBuffer.bind();
-			shaderProgram->setModelTransform(m_quad->m_modelTransform);
-			glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_quad->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
+		//if (m_quad)
+		//{
+		//	m_quad->m_vertexBuffer.bind();
+		//	shaderProgram->setModelTransform(m_quad->m_modelTransform);
+		//	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_quad->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
 
-		}
+		//}
 		if (m_cube)
 		{
 			m_cube->m_vertexBuffer.bind();
 			shaderProgram->setModelTransform(m_cube->m_modelTransform);
-			//m_cube->m_modelTransform = glm::rotate(m_cube->m_modelTransform, glm::radians(20 * deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
+			m_cube->m_modelTransform = glm::rotate(m_cube->m_modelTransform, glm::radians(20 * deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
 			if (m_texture)
 			{
 				m_texture->bind(*shaderProgram, "baseColorTexture", 0);

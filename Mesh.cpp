@@ -82,3 +82,9 @@ Mesh MeshData::getCube()
 				
 	};
 }
+
+Mesh MeshData::getCustomModel()
+{
+	//start file dialog here for custom model
+	return Mesh();
+}

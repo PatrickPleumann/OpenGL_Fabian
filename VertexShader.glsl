@@ -11,12 +11,12 @@ out vec3 normal;
 out vec3 vertexPos;
 
 uniform mat4 modelTransform;
-
 uniform mat4 viewTransformation;
 uniform mat4 projectionTransformation;
 
 void main()
-{ //matrices which stands on the very right is the first one to be multiplicated
+{ 
+	//matrices which stands on the very right is the first one to be multiplicated
 	gl_Position = projectionTransformation * viewTransformation * modelTransform * vec4(pos, 1.0);
 	uvs = uvsVertex;
 	color = col;

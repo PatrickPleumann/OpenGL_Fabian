@@ -6,7 +6,6 @@ in vec2 uvs;
 in vec3 normal;
 in vec3 vertexPos;
 
-
 uniform vec4 lightColor = {1.0f,1.0f,1.0f,1.0f};
 uniform vec3 lightPos = {10.0, 5.0, 10.0};
 uniform vec3 viewPos;

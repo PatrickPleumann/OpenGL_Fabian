@@ -3,7 +3,7 @@
 #include "Shader.hpp"
 #include "glm/glm.hpp"
 
-class ShaderProgram
+class ShaderProgram 
 {
 public:
 

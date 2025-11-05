@@ -1,5 +1,5 @@
-#include "Texture.hpp"
 #define STB_IMAGE_IMPLEMENTATION
+#include "Texture.hpp"
 #include <stb_image.h> // only because of #define STB_IMAGE_IMPLEMENTATION before including <stb_image.h>
 #include "ShaderProgram.hpp"
 #include "Image.hpp"
