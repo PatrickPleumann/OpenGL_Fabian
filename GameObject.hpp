@@ -15,13 +15,13 @@ public:
 
 	GameObject(float transformX, float transformY, float transformZ);
 	GameObject(float transformX, float transformY, float transformZ, Mesh _mesh);
-	
 	~GameObject();
+
+	void InitializeGameObject();
 
 	Transform transform{};
 private:
 
-	void InitializeGameObject();
 	
 	std::optional<Model> model;
 	GlobalShader shader;

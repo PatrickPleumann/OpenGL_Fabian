@@ -23,15 +23,12 @@ GameObject::GameObject(float transformX, float transformY, float transformZ)
 
 GameObject::GameObject(float transformX, float transformY, float transformZ, Mesh _mesh)
 	: GameObject(transformX, transformY, transformZ)
-
 {
 	model = Model
 	{
 		.m_vertexBuffer = VertexBuffer{_mesh.vertices, _mesh.indices},
 		.m_modelTransform = glm::translate(glm::vec3{transformX,transformY,transformZ})
 	};
-
-	InitializeGameObject();
 }
 
 GameObject::~GameObject() {}

@@ -6,6 +6,7 @@
 #include "Mesh.hpp"
 #include "Model.hpp"
 #include "glm/ext/matrix_transform.hpp"
+#include "GameObject.hpp"
 
 void Viewer3D::onCreate()
 {
@@ -37,6 +38,9 @@ void Viewer3D::onCreate()
 	m_texture = Texture(".\\assets\\Treebark_Normal.jpg");  //ein Punkt bei gleicher Ordner Ebene .. bei ein Ordner darüber (in jedem Fall relationell)
 
 	m_skyBox = Skybox();
+
+	//GameObject obj(0.0f, 0.0f, 3.0f);
+
 }
 
 void Viewer3D::onUpdate(float deltaTime)
