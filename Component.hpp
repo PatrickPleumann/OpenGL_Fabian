@@ -3,8 +3,5 @@
 
 struct Component
 {
-	virtual void InitializeComponent()
-	{
-
-	}
+	virtual void InitializeComponent(){}
 };

@@ -23,7 +23,7 @@ ShaderProgram::ShaderProgram(const Shader& vertexShader, const Shader& fragmentS
 
 void ShaderProgram::use() const
 {
-	//hier könnte man noch delta tiem per glUniformMatrix1f übergeben >> nice!
+	//hier könnte man noch delta time per glUniformMatrix1f übergeben >> nice!
 	glUseProgram(*m_id);
 }
 

@@ -107,6 +107,9 @@
     <ClInclude Include="Transform.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="GlobalShader.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="VertexShader.glsl" />

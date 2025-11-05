@@ -25,6 +25,5 @@ Shader::Shader(const std::filesystem::path& fileName, GLenum shaderType)
 		errorString.resize(len);
 		glGetShaderInfoLog(*m_id, len, nullptr, errorString.data());
 		std::cout << "Error in Shader: " << errorString << std::endl;
-		//std::prinln("Error in Shader: {}", errorString);
 	}
 }

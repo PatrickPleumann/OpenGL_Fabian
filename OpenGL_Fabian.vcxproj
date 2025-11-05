@@ -154,6 +154,7 @@
     <ClInclude Include="DebugOutput.hpp" />
     <ClInclude Include="Engine.hpp" />
     <ClInclude Include="GameObject.hpp" />
+    <ClInclude Include="GlobalShader.hpp" />
     <ClInclude Include="Image.hpp" />
     <ClInclude Include="Mesh.hpp" />
     <ClInclude Include="Model.hpp" />

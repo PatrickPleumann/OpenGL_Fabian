@@ -53,26 +53,11 @@ void Viewer3D::onUpdate(float deltaTime)
 		shaderProgram->use();
 		shaderProgram->addCameraTransform(m_camera.getViewTransform(), m_camera.calcProjectionTransform(aspectRatio), m_camera.position);
 
-		//if (m_triangle)
-		//{
-		//	m_triangle->m_vertexBuffer.bind();
-		//	shaderProgram->setModelTransform(m_triangle->m_modelTransform);
-		//	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_triangle->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
 
-		//}
-
-		//if (m_quad)
-		//{
-		//	m_quad->m_vertexBuffer.bind();
-		//	shaderProgram->setModelTransform(m_quad->m_modelTransform);
-		//	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_quad->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
-
-		//}
 		if (m_cube)
 		{
 			m_cube->m_vertexBuffer.bind();
 			shaderProgram->setModelTransform(m_cube->m_modelTransform);
-			m_cube->m_modelTransform = glm::rotate(m_cube->m_modelTransform, glm::radians(20 * deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
 			if (m_texture)
 			{
 				m_texture->bind(*shaderProgram, "baseColorTexture", 0);
@@ -81,6 +66,7 @@ void Viewer3D::onUpdate(float deltaTime)
 		}
 	}
 	
+			//m_cube->m_modelTransform = glm::rotate(m_cube->m_modelTransform, glm::radians(20 * deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
 	if (m_skyBox)
 	{
 		glDepthMask(GL_FALSE);

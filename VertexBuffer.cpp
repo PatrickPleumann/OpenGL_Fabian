@@ -35,6 +35,10 @@ VertexBuffer::VertexBuffer(const std::vector<Vertex>& vertices, const std::vecto
 	glBindVertexArray(0);
 }
 
+void VertexBuffer::InitializeComponent()
+{
+	bind();
+}
 
 void VertexBuffer::bind()
 {
