@@ -9,17 +9,6 @@
 
 void Viewer3D::onCreate()
 {
-	//Mesh cube = MeshData::getCube();
-	//m_cube = Model
-	//{
-	//	.m_vertexBuffer = VertexBuffer{cube.vertices, cube.indices},
-	//	.m_modelTransform = glm::translate(glm::vec3{0.0f,0.0f,0.0f})
-	//};
-
-	//Shader vertexShader("VertexShader.glsl", GL_VERTEX_SHADER);
-	//Shader fragmentShader("FragmentShader_Phong.glsl", GL_FRAGMENT_SHADER);
-	//shaderProgram = ShaderProgram(vertexShader, fragmentShader);
-
 	m_skyBox = Skybox();
 }
 
@@ -32,15 +21,18 @@ void Viewer3D::onUpdate(float deltaTime)
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+
+
 	GameObject obj(0.0f, 0.0f, 0.0f, aspectRatio, m_camera);
 	InitializeGameObjects(obj, aspectRatio, deltaTime);
-
 
 	GameObject obj2(1.0f, 2.0f, 1.0f, aspectRatio, m_camera);
 	InitializeGameObjects(obj2, aspectRatio, deltaTime);
 
 	GameObject obj3(2.0f, 2.0f, 3.0f, aspectRatio, m_camera);
 	InitializeGameObjects(obj3, aspectRatio, deltaTime);
+
+
 
 	if (m_skyBox)
 	{

@@ -35,7 +35,7 @@ bool Engine::init()
 		glfwTerminate();
 		return false;
 	}
-	glfwSetWindowPos(window, 1500, 500);
+	glfwSetWindowPos(window, 200, 200);
 
 	glfwSetWindowSizeCallback(window, onSize);
 
