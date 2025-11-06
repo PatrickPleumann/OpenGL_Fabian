@@ -14,6 +14,7 @@ class Viewer3D : public Engine
 	void onCreate() override;
 	void onUpdate(float deltaTime) override;
 	void handleInput(float deltaTime);
+	void InitializeGameObjects(GameObject& _obj, float _ascectRatio, float _deltaTime);
 
 	std::optional<ShaderProgram> shaderProgram;
 
