@@ -9,32 +9,16 @@
 
 void Viewer3D::onCreate()
 {
-	Mesh triangle = MeshData::getTriangle();
-	m_triangle = Model
-	{
-		.m_vertexBuffer = VertexBuffer {triangle.vertices },
-		.m_modelTransform = glm::scale(glm::vec3{ 0.5f,0.5f,1.0f }) * glm::translate(glm::vec3{ 0.0f,0.0f,-2.0f })
-	};
+	//Mesh cube = MeshData::getCube();
+	//m_cube = Model
+	//{
+	//	.m_vertexBuffer = VertexBuffer{cube.vertices, cube.indices},
+	//	.m_modelTransform = glm::translate(glm::vec3{0.0f,0.0f,0.0f})
+	//};
 
-	Mesh quad = MeshData::getQuad();
-	m_quad = Model
-	{
-		.m_vertexBuffer = VertexBuffer { quad.vertices, quad.indices },
-		.m_modelTransform = glm::translate(glm::vec3{ 2.0f,0.0f,0.0f })
-	};
-
-	Mesh cube = MeshData::getCube();
-	m_cube = Model
-	{
-		.m_vertexBuffer = VertexBuffer{cube.vertices, cube.indices},
-		.m_modelTransform = glm::translate(glm::vec3{0.0f,0.0f,0.0f})
-	};
-
-	Shader vertexShader("VertexShader.glsl", GL_VERTEX_SHADER);
-	Shader fragmentShader("FragmentShader_Phong.glsl", GL_FRAGMENT_SHADER);
-	shaderProgram = ShaderProgram(vertexShader, fragmentShader);
-
-	m_texture = Texture(".\\assets\\Treebark_Normal.jpg");  //ein Punkt bei gleicher Ordner Ebene .. bei ein Ordner darüber (in jedem Fall relationell)
+	//Shader vertexShader("VertexShader.glsl", GL_VERTEX_SHADER);
+	//Shader fragmentShader("FragmentShader_Phong.glsl", GL_FRAGMENT_SHADER);
+	//shaderProgram = ShaderProgram(vertexShader, fragmentShader);
 
 	m_skyBox = Skybox();
 }
@@ -46,28 +30,46 @@ void Viewer3D::onUpdate(float deltaTime)
 	const auto winSize = getWindowSize();
 	const float aspectRatio = winSize.x / winSize.y;
 
-
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	if (shaderProgram)
+	GameObject obj(0.0f, 0.0f, 0.0f, aspectRatio, m_camera);
+	if (obj.shaderProgram)
 	{
-		shaderProgram->use();
-		shaderProgram->addCameraTransform(m_camera.getViewTransform(), m_camera.calcProjectionTransform(aspectRatio), m_camera.position);
+		obj.shaderProgram->use();
+		obj.shaderProgram->addCameraTransform(m_camera.getViewTransform(), m_camera.calcProjectionTransform(aspectRatio), m_camera.position);
 
-
-		if (m_cube)
+		if (obj.model)
 		{
-
-			m_cube->m_vertexBuffer.bind();
-			shaderProgram->setModelTransform(m_cube->m_modelTransform);
-			m_cube->m_modelTransform = glm::rotate(m_cube->m_modelTransform, glm::radians(20 * deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
-			if (m_texture)
+			obj.model->m_vertexBuffer.bind();
+			obj.shaderProgram->setModelTransform(obj.model->m_modelTransform);
+			obj.model->m_modelTransform = glm::rotate(obj.model->m_modelTransform, glm::radians(20 * deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
+			if (obj.texture)
 			{
-				m_texture->bind(*shaderProgram, "baseColorTexture", 0);
+				obj.texture->bind(*obj.shaderProgram, "baseColorTexture", 0);
 			}
-			glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_cube->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
+			glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(obj.model->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
 		}
 	}
+
+	GameObject obj2(1.0f, 1.0f, 1.0f, aspectRatio, m_camera);
+	if (obj2.shaderProgram)
+	{
+		obj2.shaderProgram->use();
+		obj2.shaderProgram->addCameraTransform(m_camera.getViewTransform(), m_camera.calcProjectionTransform(aspectRatio), m_camera.position);
+
+		if (obj2.model)
+		{
+			obj2.model->m_vertexBuffer.bind();
+			obj2.shaderProgram->setModelTransform(obj2.model->m_modelTransform);
+			obj2.model->m_modelTransform = glm::rotate(obj2.model->m_modelTransform, glm::radians(20 * deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
+			if (obj2.texture)
+			{
+				obj2.texture->bind(*obj2.shaderProgram, "baseColorTexture", 0);
+			}
+			glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(obj2.model->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
+		}
+	}
+	
 
 	if (m_skyBox)
 	{

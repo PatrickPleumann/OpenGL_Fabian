@@ -12,10 +12,10 @@ private:
 	Shader fragmentShader = { "FragmentShader_Phong.glsl", GL_FRAGMENT_SHADER };
 
 public:
-	ShaderProgram shaderProgram = { vertexShader,fragmentShader };
+	std::optional<ShaderProgram> shaderProgram = ShaderProgram{ vertexShader,fragmentShader };
 
 	void InitializeComponent() override
 	{
-		shaderProgram.use();
+		shaderProgram->use();
 	}
 };
