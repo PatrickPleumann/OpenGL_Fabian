@@ -36,10 +36,10 @@ void Viewer3D::onUpdate(float deltaTime)
 	InitializeGameObjects(obj, aspectRatio, deltaTime);
 
 
-	GameObject obj2(1.0f, 1.0f, 1.0f, aspectRatio, m_camera);
+	GameObject obj2(1.0f, 2.0f, 1.0f, aspectRatio, m_camera);
 	InitializeGameObjects(obj2, aspectRatio, deltaTime);
 
-	GameObject obj3(2.0f, 2.0f, 0.0f, aspectRatio, m_camera);
+	GameObject obj3(2.0f, 2.0f, 3.0f, aspectRatio, m_camera);
 	InitializeGameObjects(obj3, aspectRatio, deltaTime);
 
 	if (m_skyBox)
@@ -73,16 +73,16 @@ void Viewer3D::handleInput(float deltaTime)
 	{
 		m_camera.position += -glm::normalize(glm::cross(m_camera.up, m_camera.getDirection())) * deltaTime * speed;
 	}
+
 	if (getKey(GLFW_KEY_SPACE))
 	{
-		m_camera.position += -glm::normalize(glm::cross(m_camera.down, m_camera.getDirection())) * deltaTime * speed;
+		m_camera.position += glm::normalize(m_camera.down) * deltaTime * speed;
 	}
 
 	if (getKey(GLFW_KEY_LEFT_CONTROL))
 	{
-		m_camera.position += glm::normalize(glm::cross(m_camera.down, m_camera.getDirection())) * deltaTime * speed;
+		m_camera.position += -glm::normalize(m_camera.down) * deltaTime * speed;
 	}
-
 
 	glm::vec2 mousePos = getMousePos();
 

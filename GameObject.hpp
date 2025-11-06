@@ -13,11 +13,15 @@
 
 class GameObject
 {
+private:
+
+	Shader vertexShader = { "VertexShader.glsl", GL_VERTEX_SHADER };
+	Shader fragmentShader = { "FragmentShader_Phong.glsl", GL_FRAGMENT_SHADER };
+
 public:
 
 	GameObject( float _posX, float _posY, float _posZ, float _aspectRatio,  Camera _camera, Mesh _mesh);
 	GameObject( float _posX, float _posY, float _posZ, float _aspectRatio,  Camera _camera);
-
 	~GameObject();
 
 	Transform transform
@@ -27,18 +31,9 @@ public:
 		.Scale = {1.0f, 1.0f, 1.0f}
 	};
 
-	Shader vertexShader = { "VertexShader.glsl", GL_VERTEX_SHADER };
-	Shader fragmentShader = { "FragmentShader_Phong.glsl", GL_FRAGMENT_SHADER };
-
 	std::optional<ShaderProgram> shaderProgram = ShaderProgram{ vertexShader, fragmentShader };
 
 	std::optional<Texture> texture = Texture{ ".\\assets\\Treebark_Normal.jpg" };
 	std::optional<Model> model;
-
-
-
-private:
-	void InitializeGameObject();
-
 };
 
