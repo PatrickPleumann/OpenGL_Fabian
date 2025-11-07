@@ -20,6 +20,9 @@ private:
 
 	Camera m_camera{};
 
+	const float speed = { 10.0f };
+	const float angularSpeed = { 20.0f };
+
 	float aspectRatio{};
 
 	std::optional<ShaderProgram> shaderProgram;

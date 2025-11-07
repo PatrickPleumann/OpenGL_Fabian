@@ -38,8 +38,6 @@ void Viewer3D::onUpdate(float deltaTime)
 //on window Resize event to re-calculate aspect ratio
 void Viewer3D::handleInput(float deltaTime)
 {
-	const float speed = { 10.0f };
-
 	//encapsulate GLWF_keys into separate class 
 	if (getKey(GLFW_KEY_W))
 	{
@@ -115,7 +113,7 @@ void Viewer3D::InitializeGameObjects(GameObject& _obj, float _ascectRatio, float
 
 	_obj.model->m_vertexBuffer.bind();
 	_obj.shaderProgram->setModelTransform(_obj.model->m_modelTransform);
-	_obj.model->m_modelTransform = glm::rotate(_obj.model->m_modelTransform, glm::radians(20 * _deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
+	_obj.model->m_modelTransform = glm::rotate(_obj.model->m_modelTransform, glm::radians(20 * _deltaTime), glm::vec3{ 1.0f,1.0f,1.0f });
 	if (_obj.texture)
 	{
 		_obj.texture->bind(*_obj.shaderProgram, "baseColorTexture", 0);
