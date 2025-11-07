@@ -14,24 +14,23 @@ void Viewer3D::onCreate()
 
 void Viewer3D::onUpdate(float deltaTime)
 {
-	handleInput(deltaTime);
-
 	const auto winSize = getWindowSize();
-	const float aspectRatio = winSize.x / winSize.y;
+	aspectRatio = winSize.x / winSize.y;
+
+	handleInput(deltaTime);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	RenderGameObjects(deltaTime);
 
+	//GameObject obj(0.0f, 0.0f, 0.0f, aspectRatio, m_camera);
+	//InitializeGameObjects(obj, aspectRatio, deltaTime);
 
-	GameObject obj(0.0f, 0.0f, 0.0f, aspectRatio, m_camera);
-	InitializeGameObjects(obj, aspectRatio, deltaTime);
+	//GameObject obj2(1.0f, 2.0f, 1.0f, aspectRatio, m_camera);
+	//InitializeGameObjects(obj2, aspectRatio, deltaTime);
 
-	GameObject obj2(1.0f, 2.0f, 1.0f, aspectRatio, m_camera);
-	InitializeGameObjects(obj2, aspectRatio, deltaTime);
-
-	GameObject obj3(2.0f, 2.0f, 3.0f, aspectRatio, m_camera);
-	InitializeGameObjects(obj3, aspectRatio, deltaTime);
-
+	//GameObject obj3(2.0f, 2.0f, 3.0f, aspectRatio, m_camera, MeshData::getCube());
+	//InitializeGameObjects(obj3, aspectRatio, deltaTime);
 
 
 	if (m_skyBox)
@@ -76,6 +75,12 @@ void Viewer3D::handleInput(float deltaTime)
 		m_camera.position += -glm::normalize(m_camera.down) * deltaTime * speed;
 	}
 
+	if (getKey(GLFW_KEY_G))
+	{
+		GameObject* obj = new GameObject(0 + rand() % 8, 0 + rand() % 8, 0 + rand() % 8, aspectRatio, m_camera);
+		gameObjects.push_back(obj);
+	}
+
 	glm::vec2 mousePos = getMousePos();
 
 	if (!m_lastMousePos)
@@ -96,24 +101,33 @@ void Viewer3D::handleInput(float deltaTime)
 	m_lastMousePos = mousePos;
 }
 
-void Viewer3D::InitializeGameObjects(GameObject& _obj, float _ascectRatio, float _deltaTime)
+void Viewer3D::RenderGameObjects(float _deltaTime)
 {
-	if (_obj.shaderProgram)
+	for (auto gameObj : gameObjects)
 	{
-		_obj.shaderProgram->use();
-		_obj.shaderProgram->addCameraTransform(m_camera.getViewTransform(), m_camera.calcProjectionTransform(_ascectRatio), m_camera.position);
-
-		if (_obj.model)
-		{
-			_obj.model->m_vertexBuffer.bind();
-			_obj.shaderProgram->setModelTransform(_obj.model->m_modelTransform);
-			_obj.model->m_modelTransform = glm::rotate(_obj.model->m_modelTransform, glm::radians(20 * _deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
-			if (_obj.texture)
-			{
-				_obj.texture->bind(*_obj.shaderProgram, "baseColorTexture", 0);
-			}
-			glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(_obj.model->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
-		}
+		InitializeGameObjects(*gameObj, aspectRatio, _deltaTime);
 	}
 }
+
+
+void Viewer3D::InitializeGameObjects(GameObject& _obj, float _ascectRatio, float _deltaTime)
+{
+	if (!_obj.shaderProgram) return;
+
+	_obj.shaderProgram->use();
+	_obj.shaderProgram->addCameraTransform(m_camera.getViewTransform(), m_camera.calcProjectionTransform(_ascectRatio), m_camera.position);
+
+	if (!_obj.model) return;
+
+	_obj.model->m_vertexBuffer.bind();
+	_obj.shaderProgram->setModelTransform(_obj.model->m_modelTransform);
+	_obj.model->m_modelTransform = glm::rotate(_obj.model->m_modelTransform, glm::radians(20 * _deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
+	if (_obj.texture)
+	{
+		_obj.texture->bind(*_obj.shaderProgram, "baseColorTexture", 0);
+	}
+	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(_obj.model->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
+
+}
+
 

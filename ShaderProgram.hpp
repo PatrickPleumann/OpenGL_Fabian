@@ -2,8 +2,9 @@
 #include "UniqueResource.hpp"
 #include "Shader.hpp"
 #include "glm/glm.hpp"
+#include "Component.hpp"
 
-class ShaderProgram 
+class ShaderProgram : public Component
 {
 public:
 
@@ -17,6 +18,11 @@ public:
 
 	void setModelTransform(const glm::mat4& modelTransform);
 
+
+	virtual void InitializeComponent() override
+	{
+
+	}
 	GLuint get() const
 	{
 		return *m_id;

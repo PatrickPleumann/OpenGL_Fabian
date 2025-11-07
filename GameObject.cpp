@@ -2,6 +2,8 @@
 
 GameObject::GameObject( float _posX, float _posY, float _posZ, float _aspectRatio, Camera _camera, Mesh _mesh)
 {
+	mesh = _mesh;
+
 	transform.Position.x = _posX;
 	transform.Position.y = _posY;
 	transform.Position.z = _posZ;
@@ -11,21 +13,21 @@ GameObject::GameObject( float _posX, float _posY, float _posZ, float _aspectRati
 		.m_vertexBuffer = VertexBuffer{_mesh.vertices, _mesh.indices},
 		.m_modelTransform = glm::translate(glm::vec3{_posX, _posY, _posZ})
 	};
+
 }
 
 GameObject::GameObject(float _posX,float _posY,float _posZ,float _aspectRatio, Camera _camera)
 {
-	Mesh mesh = MeshData::getCube();
-
 	transform.Position.x = _posX;
 	transform.Position.y = _posY;
 	transform.Position.z = _posZ;
 
 	model = Model
 	{
-		.m_vertexBuffer = VertexBuffer{mesh.vertices, mesh.indices},
+		.m_vertexBuffer = VertexBuffer{mesh->vertices, mesh->indices},
 		.m_modelTransform = glm::translate(glm::vec3{_posX, _posY, _posZ})
 	};
 }
 
 GameObject::~GameObject() {}
+

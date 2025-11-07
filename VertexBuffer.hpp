@@ -28,6 +28,7 @@ private:
 	UniqueResource m_vao{ createVertexArrayObject(), &deleteVertexArrayObject };
 	UniqueResource m_vbo{ createBuffer(), &deleteBuffer};
 	UniqueResource m_ebo{ createBuffer(), &deleteBuffer};
+
 	bool m_hasIndexBuffer{ false };
 
 	size_t m_indexCount{  };

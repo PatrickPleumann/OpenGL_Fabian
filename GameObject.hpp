@@ -10,6 +10,7 @@
 #include "Texture.hpp"
 #include "Camera.hpp"
 #include "GlobalShader.hpp"
+#include "Component.hpp"
 
 class GameObject
 {
@@ -20,8 +21,8 @@ private:
 
 public:
 
-	GameObject( float _posX, float _posY, float _posZ, float _aspectRatio,  Camera _camera, Mesh _mesh);
-	GameObject( float _posX, float _posY, float _posZ, float _aspectRatio,  Camera _camera);
+	GameObject(float _posX, float _posY, float _posZ, float _aspectRatio, Camera _camera, Mesh _mesh);
+	GameObject(float _posX, float _posY, float _posZ, float _aspectRatio, Camera _camera);
 	~GameObject();
 
 	Transform transform
@@ -35,5 +36,9 @@ public:
 
 	std::optional<Texture> texture = Texture{ ".\\assets\\Treebark_Normal.jpg" };
 	std::optional<Model> model;
-};
+	std::optional<Mesh> mesh = MeshData::getCube();
 
+
+	std::vector<Component> components;
+
+};

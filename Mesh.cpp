@@ -9,7 +9,9 @@ Mesh MeshData::getTriangle()
 		Vertex{.pos = {0.0f, 0.5f, 0.0f},.color = {0.0f,0.0f,1.0f,1.0f} }
 	};
 
-	return Mesh{ vertices };
+	std::vector<unsigned int> indices{0 , 2 , 1 };
+
+	return Mesh{ vertices, indices };
 };
 
 Mesh MeshData::getQuad()
@@ -79,7 +81,6 @@ Mesh MeshData::getCube()
 		  0 + 16,3 + 16,2 + 16,0 + 16,2 + 16,1 + 16,
 		  0 + 20,3 + 20,2 + 20,0 + 20,2 + 20,1 + 20,
 		}
-				
 	};
 }
 

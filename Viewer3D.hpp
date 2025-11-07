@@ -15,7 +15,7 @@ class Viewer3D : public Engine
 	void onUpdate(float deltaTime) override;
 	void handleInput(float deltaTime);
 	void InitializeGameObjects(GameObject& _obj, float _ascectRatio, float _deltaTime);
-
+	void RenderGameObjects(float _deltaTime);
 	std::optional<ShaderProgram> shaderProgram;
 
 	Camera m_camera{};
@@ -23,6 +23,8 @@ class Viewer3D : public Engine
 	std::optional<Model> m_triangle;
 	std::optional<Model> m_quad;
 	std::optional<Model> m_cube;
+
+	float aspectRatio;
 
 	std::optional<GameObject> gameObj;
 	
@@ -32,5 +34,7 @@ class Viewer3D : public Engine
 	std::optional<glm::vec2> m_lastMousePos;
 
 	std::optional<Skybox> m_skyBox;
+
+	std::vector<GameObject*> gameObjects;
 };
 

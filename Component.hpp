@@ -1,7 +1,7 @@
 #pragma once
 #include "glad/glad.h"
 
-struct Component
+class Component
 {
-	virtual void InitializeComponent(){}
+	virtual void InitializeComponent() = 0;
 };
