@@ -11,30 +11,22 @@
 
 class Viewer3D : public Engine
 {
+private:
 	void onCreate() override;
 	void onUpdate(float deltaTime) override;
 	void handleInput(float deltaTime);
 	void InitializeGameObjects(GameObject& _obj, float _ascectRatio, float _deltaTime);
 	void RenderGameObjects(float _deltaTime);
-	std::optional<ShaderProgram> shaderProgram;
 
 	Camera m_camera{};
 
-	std::optional<Model> m_triangle;
-	std::optional<Model> m_quad;
-	std::optional<Model> m_cube;
+	float aspectRatio{};
 
-	float aspectRatio;
-
-	std::optional<GameObject> gameObj;
-	
+	std::optional<ShaderProgram> shaderProgram;
 	std::optional<Texture> m_texture;
-
-
+	std::optional<Skybox> m_skyBox;
 	std::optional<glm::vec2> m_lastMousePos;
 
-	std::optional<Skybox> m_skyBox;
-
-	std::vector<GameObject*> gameObjects;
+	std::vector<GameObject*> gameObjects; //contains all GO´s 
 };
 

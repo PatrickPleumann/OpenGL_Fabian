@@ -7,12 +7,14 @@
 #include "Model.hpp"
 #include "glm/ext/matrix_transform.hpp"
 
+
 void Viewer3D::onCreate()
 {
-	GameObject* obj = new GameObject(1.0f, 1.0f, 1.0f, aspectRatio, m_camera);
+	GameObject* obj = new GameObject(0.0f, 0.0f, 0.0f, aspectRatio, m_camera);
 	gameObjects.push_back(obj);
 	m_skyBox = Skybox();
 }
+
 
 void Viewer3D::onUpdate(float deltaTime)
 {
@@ -32,6 +34,7 @@ void Viewer3D::onUpdate(float deltaTime)
 		glDepthMask(GL_TRUE);
 	}
 }
+
 
 void Viewer3D::handleInput(float deltaTime)
 {
@@ -100,7 +103,6 @@ void Viewer3D::RenderGameObjects(float _deltaTime)
 		InitializeGameObjects(*gameObj, aspectRatio, _deltaTime);
 	}
 }
-
 
 void Viewer3D::InitializeGameObjects(GameObject& _obj, float _ascectRatio, float _deltaTime)
 {
