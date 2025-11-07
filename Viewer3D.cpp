@@ -9,6 +9,8 @@
 
 void Viewer3D::onCreate()
 {
+	GameObject* obj = new GameObject(1.0f, 1.0f, 1.0f, aspectRatio, m_camera);
+	gameObjects.push_back(obj);
 	m_skyBox = Skybox();
 }
 
@@ -22,16 +24,6 @@ void Viewer3D::onUpdate(float deltaTime)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	RenderGameObjects(deltaTime);
-
-	//GameObject obj(0.0f, 0.0f, 0.0f, aspectRatio, m_camera);
-	//InitializeGameObjects(obj, aspectRatio, deltaTime);
-
-	//GameObject obj2(1.0f, 2.0f, 1.0f, aspectRatio, m_camera);
-	//InitializeGameObjects(obj2, aspectRatio, deltaTime);
-
-	//GameObject obj3(2.0f, 2.0f, 3.0f, aspectRatio, m_camera, MeshData::getCube());
-	//InitializeGameObjects(obj3, aspectRatio, deltaTime);
-
 
 	if (m_skyBox)
 	{
