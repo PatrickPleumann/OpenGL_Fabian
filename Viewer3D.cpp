@@ -35,7 +35,7 @@ void Viewer3D::onUpdate(float deltaTime)
 	}
 }
 
-
+//on window Resize event to re-calculate aspect ratio
 void Viewer3D::handleInput(float deltaTime)
 {
 	const float speed = { 10.0f };
@@ -82,7 +82,7 @@ void Viewer3D::handleInput(float deltaTime)
 	{
 		m_lastMousePos = mousePos;
 	}
-	const float angularSpeed = { 20.0f };
+
 
 
 	if (getMouseButton(0))    // to only move when left mouse button is clicked!

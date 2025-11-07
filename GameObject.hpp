@@ -38,7 +38,6 @@ public:
 	std::optional<Model> model;
 	std::optional<Mesh> mesh = MeshData::getCube();
 
-
-	std::vector<Component> components;
+	std::vector<Component*> components;
 
 };
