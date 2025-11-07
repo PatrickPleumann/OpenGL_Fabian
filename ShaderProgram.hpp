@@ -2,9 +2,9 @@
 #include "UniqueResource.hpp"
 #include "Shader.hpp"
 #include "glm/glm.hpp"
-#include "Component.hpp"
+#include "Camera.hpp"
 
-class ShaderProgram : public Component
+class ShaderProgram
 {
 public:
 
@@ -13,16 +13,10 @@ public:
 
 	void use() const;
 
-	void addCameraTransform(const glm::mat4& viewTransform, const glm::mat4& projectionTransform, 
-		const glm::vec3& cameraPos);
+	void addCameraTransform(const glm::mat4& viewTransform, const glm::mat4& projectionTransform, const glm::vec3& cameraPos);
 
 	void setModelTransform(const glm::mat4& modelTransform);
 
-
-	virtual void InitializeComponent() override
-	{
-
-	}
 	GLuint get() const
 	{
 		return *m_id;

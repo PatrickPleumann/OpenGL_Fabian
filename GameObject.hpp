@@ -1,6 +1,5 @@
 #pragma once
 #include <vector>
-#include "Component.hpp"
 #include "glm/glm.hpp"
 #include "Transform.hpp"
 #include "Mesh.hpp"
@@ -10,7 +9,6 @@
 #include "Texture.hpp"
 #include "Camera.hpp"
 #include "GlobalShader.hpp"
-#include "Component.hpp"
 
 class GameObject
 {
@@ -37,7 +35,5 @@ public:
 	std::optional<Texture> texture = Texture{ ".\\assets\\Treebark_Normal.jpg" };
 	std::optional<Model> model;
 	std::optional<Mesh> mesh = MeshData::getCube();
-
-	std::vector<Component*> components;
 
 };

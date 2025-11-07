@@ -98,9 +98,6 @@
     <ClInclude Include="Image.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Component.hpp">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>

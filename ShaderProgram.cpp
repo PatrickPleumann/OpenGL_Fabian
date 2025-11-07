@@ -1,4 +1,3 @@
-#include "Component.hpp"
 #include "ShaderProgram.hpp"
 #include "Shader.hpp"
 #include "glad/glad.h"
@@ -23,8 +22,9 @@ ShaderProgram::ShaderProgram(const Shader& vertexShader, const Shader& fragmentS
 
 void ShaderProgram::use() const
 {
-	//hier könnte man noch delta time per glUniformMatrix1f übergeben >> nice!
 	glUseProgram(*m_id);
+	//hier könnte man noch delta time per glUniformMatrix1f übergeben >> nice!
+
 }
 
 void ShaderProgram::addCameraTransform(const glm::mat4& viewTransform, const glm::mat4& projectionTransform, const glm::vec3& cameraPos)

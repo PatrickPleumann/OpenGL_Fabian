@@ -1,5 +1,4 @@
 #pragma once
-#include "Component.hpp"
 #include "VertexBuffer.hpp"
 
 struct Model

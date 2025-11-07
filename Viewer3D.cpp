@@ -70,7 +70,7 @@ void Viewer3D::handleInput(float deltaTime)
 
 	if (getKey(GLFW_KEY_G))
 	{
-		GameObject* obj = new GameObject(0 + rand() % 8, 0 + rand() % 8, 0 + rand() % 8, aspectRatio, m_camera);
+		GameObject* obj = new GameObject((float)0 + rand() % 8, (float)0 + rand() % 8, (float)0 + rand() % 8, aspectRatio, m_camera);
 		gameObjects.push_back(obj);
 	}
 

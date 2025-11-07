@@ -1,10 +1,9 @@
 #pragma once
 #include "Shader.hpp"
 #include "ShaderProgram.hpp"
-#include "Component.hpp"
 #include <optional>
 
-class GlobalShader : public Component
+class GlobalShader
 {
 private:
 	//standard GlobalShader
@@ -13,9 +12,4 @@ private:
 
 public:
 	std::optional<ShaderProgram> shaderProgram = ShaderProgram{ vertexShader,fragmentShader };
-
-	void InitializeComponent() override
-	{
-		shaderProgram->use();
-	}
 };

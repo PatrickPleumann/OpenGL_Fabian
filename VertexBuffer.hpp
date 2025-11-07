@@ -2,14 +2,12 @@
 #include <vector>
 #include "Vertex.hpp"
 #include "UniqueResource.hpp"
-#include "Component.hpp"
 
-class VertexBuffer : public Component
+class VertexBuffer
 {
 public:
 	VertexBuffer(const std::vector<Vertex>& vertices);
 	VertexBuffer(const std::vector<Vertex>& vertices, const std::vector<unsigned int>& indices);
-	void InitializeComponent() override;
 	void bind();
 
 	size_t getIndexCount() const
