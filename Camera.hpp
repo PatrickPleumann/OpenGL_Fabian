@@ -10,7 +10,7 @@ public:
 
 	glm::vec3 getDirection() const;
 
-	glm::mat4 projectionTransform{ 1.0f };
+	glm::mat4 projectionTransform{ glm::mat4{ glm::perspective(glm::radians(60.0f), 1920.0f / 1080.0f, 0.1f, 100.0f) }};
 
 	glm::vec3 position { .0f,.0f, -5.0f };
 	glm::vec3 up { 0.0f, 1.0f, 0.0f };

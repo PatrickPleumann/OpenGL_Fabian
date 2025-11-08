@@ -54,7 +54,7 @@ bool Engine::init()
 #endif
 
 	glClearColor(0.1f, 0.1f, 0.2f, 1.0f);
-
+	glEnable(GL_CULL_FACE);
 	//glEnable(GL_BLEND);
 	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC1_ALPHA);   // with alpha channel
 

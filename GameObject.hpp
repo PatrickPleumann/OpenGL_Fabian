@@ -1,4 +1,5 @@
 #pragma once
+
 #include <vector>
 #include "glm/glm.hpp"
 #include "Transform.hpp"
@@ -13,7 +14,6 @@
 class GameObject
 {
 private:
-
 	Shader vertexShader = { "VertexShader.glsl", GL_VERTEX_SHADER };
 	Shader fragmentShader = { "FragmentShader_Phong.glsl", GL_FRAGMENT_SHADER };
 
@@ -30,7 +30,7 @@ public:
 		.Scale = {1.0f, 1.0f, 1.0f}
 	};
 
-	std::optional<ShaderProgram> shaderProgram = ShaderProgram{ vertexShader, fragmentShader };
+	std::optional<ShaderProgram> shaderProgram;
 
 	std::optional<Texture> texture = Texture{ ".\\assets\\Treebark_Normal.jpg" };
 	std::optional<Model> model;

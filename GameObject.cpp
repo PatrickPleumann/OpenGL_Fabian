@@ -14,6 +14,7 @@ GameObject::GameObject( float _posX, float _posY, float _posZ, float _aspectRati
 		.m_modelTransform = glm::translate(glm::vec3{_posX, _posY, _posZ})
 	};
 
+	shaderProgram = ShaderProgram{ vertexShader, fragmentShader };
 }
 
 GameObject::GameObject(float _posX,float _posY,float _posZ,float _aspectRatio, Camera _camera)
@@ -27,6 +28,8 @@ GameObject::GameObject(float _posX,float _posY,float _posZ,float _aspectRatio, C
 		.m_vertexBuffer = VertexBuffer{mesh->vertices, mesh->indices},
 		.m_modelTransform = glm::translate(glm::vec3{_posX, _posY, _posZ})
 	};
+
+	shaderProgram = ShaderProgram{ vertexShader, fragmentShader };
 }
 
 GameObject::~GameObject() {}

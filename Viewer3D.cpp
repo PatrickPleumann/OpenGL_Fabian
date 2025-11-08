@@ -10,8 +10,8 @@
 
 void Viewer3D::onCreate()
 {
-	GameObject* obj = new GameObject(0.0f, 0.0f, 0.0f, aspectRatio, m_camera);
-	gameObjects.push_back(obj);
+	//GameObject* obj = new GameObject(0.0f, 0.0f, 0.0f, aspectRatio, m_camera);
+	//gameObjects.push_back(obj);
 	m_skyBox = Skybox();
 }
 
