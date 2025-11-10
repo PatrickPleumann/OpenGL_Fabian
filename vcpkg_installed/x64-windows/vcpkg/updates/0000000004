@@ -1,9 +1,8 @@
-Package: glad
-Version: 0.1.36
-Depends: egl-registry, opengl-registry, vcpkg-cmake, vcpkg-cmake-config
+Package: rapidjson
+Version: 2025-02-26
+Depends: vcpkg-cmake, vcpkg-cmake-config
 Architecture: x64-windows
 Multi-Arch: same
-Abi: 028aff1477197c543ded2e5815bfbca932f8a3a7628e55c21990e1f57da367ef
-Description: Multi-Language Vulkan/GL/GLES/EGL/GLX/WGL Loader-Generator based on the official specs.
-Default-Features: loader
-Status: purge ok half-installed
+Abi: 8e78f06deeee94bda38f94b4ff9bdae1a4a64151eddc38e1a3a2cb53926051f0
+Description: A fast JSON parser/generator for C++ with both SAX/DOM style API <http://rapidjson.org/>
+Status: install ok half-installed

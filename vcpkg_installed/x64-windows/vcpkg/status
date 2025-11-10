@@ -2,21 +2,21 @@ Package: vcpkg-cmake-config
 Version: 2024-05-23
 Architecture: x64-windows
 Multi-Arch: same
-Abi: 8e1cafb58426dc691c8959234ebe184d6b806ee510d734e102c347612a486e68
+Abi: 887427ad18937047d2d72d9d307dc116e280b8a89ff4a35dc95785d8cfd7417a
 Status: install ok installed
 
 Package: vcpkg-cmake
 Version: 2024-04-23
 Architecture: x64-windows
 Multi-Arch: same
-Abi: 92236ab656317c01ffe554e48a1bf463032e53b42917107b9560e0b7ff382df8
+Abi: 3b1b6778d69fc855a23dd9f06f7614622445452ab905dfb90c019c4a409ed7c2
 Status: install ok installed
 
 Package: egl-registry
 Version: 2024-01-25
 Architecture: x64-windows
 Multi-Arch: same
-Abi: 67db603bb4ecdd844c26429eff19ffff8c575e1a9e6f776aa240f0852b3267b0
+Abi: fd4d4398b61d0bb81dc6801fb88c963dc7ed5afd276bc280534428397192a297
 Description: EGL API and Extension Registry
 Status: install ok installed
 
@@ -26,7 +26,7 @@ Port-Version: 1
 Depends: egl-registry
 Architecture: x64-windows
 Multi-Arch: same
-Abi: 47f350684babbe159b38849b0edd5dc62b6cfe8281120e557729dfb9f8e333a1
+Abi: 90285f6a31f2b7bb017e2c300e9d552497fb6ba616ec0dd7961c4edd850659df
 Description: OpenGL, OpenGL ES, and OpenGL ES-SC API and Extension Registry
 Status: install ok installed
 
@@ -35,7 +35,7 @@ Version: 0.1.36
 Depends: egl-registry, opengl-registry, vcpkg-cmake, vcpkg-cmake-config
 Architecture: x64-windows
 Multi-Arch: same
-Abi: 028aff1477197c543ded2e5815bfbca932f8a3a7628e55c21990e1f57da367ef
+Abi: 2599ea2c21ac4f8b21e3f2d7f54d8a9d94fa510bd87d3d300c95a0701c90aedf
 Description: Multi-Language Vulkan/GL/GLES/EGL/GLX/WGL Loader-Generator based on the official specs.
 Default-Features: loader
 Status: install ok installed
@@ -53,7 +53,7 @@ Port-Version: 1
 Depends: vcpkg-cmake, vcpkg-cmake-config
 Architecture: x64-windows
 Multi-Arch: same
-Abi: c45b06afe8d38c44580f97d32317cc9eecfdc2f8e3acdee913c367842f791fc8
+Abi: 4ecec440b239bfcd9204421d46cccec2ba398fda82203442ff06790ee3c20ac0
 Description: GLFW is a free, Open Source, multi-platform library for OpenGL, OpenGL ES and Vulkan application development. It provides a simple, platform-independent API for creating windows, contexts and surfaces, reading input, handling events, etc.
 Status: install ok installed
 
@@ -62,7 +62,7 @@ Version: 2024-07-29
 Port-Version: 1
 Architecture: x64-windows
 Multi-Arch: same
-Abi: beb1a3c5c4f6e9b841f1bf3f638776ece7fcd92d7f374c30fb03f7897e66e4b3
+Abi: b4cd673a68c4327fcf111f0e7c02e779a3c6469a422232eaadca0dd971404df3
 Description: public domain header-only libraries
 Status: install ok installed
 

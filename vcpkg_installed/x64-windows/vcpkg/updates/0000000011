@@ -1,7 +1,7 @@
-Package: egl-registry
-Version: 2024-01-25
+Package: vcpkg-cmake-get-vars
+Version: 2024-09-22
+Depends: vcpkg-cmake
 Architecture: x64-windows
 Multi-Arch: same
-Abi: 67db603bb4ecdd844c26429eff19ffff8c575e1a9e6f776aa240f0852b3267b0
-Description: EGL API and Extension Registry
-Status: purge ok not-installed
+Abi: 1f23e5e9114a3af4875f77ca9ddda4317efb2c6d70778470a32288b4e62c44d3
+Status: install ok installed

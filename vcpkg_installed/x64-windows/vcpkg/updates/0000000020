@@ -1,7 +1,8 @@
-Package: egl-registry
-Version: 2024-01-25
+Package: assimp
+Version: 5.4.3
+Depends: draco, jhasse-poly2tri, kubazip, minizip, polyclipping, pugixml, rapidjson, stb, utfcpp, vcpkg-cmake, vcpkg-cmake-config, zlib
 Architecture: x64-windows
 Multi-Arch: same
-Abi: fd4d4398b61d0bb81dc6801fb88c963dc7ed5afd276bc280534428397192a297
-Description: EGL API and Extension Registry
+Abi: eb6695a86f0a70aea789b6443773571429e89dd219ea3d345a9d2868f892a165
+Description: The Open Asset import library
 Status: install ok half-installed
