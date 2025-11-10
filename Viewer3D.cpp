@@ -69,7 +69,7 @@ void Viewer3D::handleInput(float deltaTime)
 	}
 
 	if (getKey(GLFW_KEY_G))
-	{
+	{ // woohoo endless spawning
 		GameObject* obj = new GameObject((float)0 + rand() % 8, (float)0 + rand() % 8, (float)0 + rand() % 8, aspectRatio, m_camera);
 		gameObjects.push_back(obj);
 	}
@@ -86,7 +86,7 @@ void Viewer3D::handleInput(float deltaTime)
 	if (getMouseButton(0))    // to only move when left mouse button is clicked!
 	{
 		auto offset = *m_lastMousePos - mousePos;
-		m_camera.yaw += offset.x * deltaTime * angularSpeed;
+		m_camera.yaw += -offset.x * deltaTime * angularSpeed;
 		m_camera.pitch += offset.y * deltaTime * angularSpeed;
 
 		m_camera.pitch = glm::clamp(m_camera.pitch, -89.0f, 89.0f);
