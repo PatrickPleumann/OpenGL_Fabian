@@ -54,7 +54,7 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="ObjLoader.cpp">
+    <ClCompile Include="ObjectLoader.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -108,9 +108,6 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="GlobalShader.hpp">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjLoader.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

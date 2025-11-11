@@ -30,6 +30,11 @@ private:
 	std::optional<Skybox> m_skyBox;
 	std::optional<glm::vec2> m_lastMousePos;
 
+	//for testing
+	Mesh mesh{};
+	GameObject* obj;
+	//end testing
+
 	std::vector<GameObject*> gameObjects; //contains all GO´s 
 };
 

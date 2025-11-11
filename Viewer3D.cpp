@@ -6,6 +6,7 @@
 #include "Mesh.hpp"
 #include "Model.hpp"
 #include "glm/ext/matrix_transform.hpp"
+#include "ObjectLoader.hpp"
 
 
 void Viewer3D::onCreate()
@@ -13,6 +14,12 @@ void Viewer3D::onCreate()
 	//GameObject* obj = new GameObject(0.0f, 0.0f, 0.0f, aspectRatio, m_camera);
 	//gameObjects.push_back(obj);
 	m_skyBox = Skybox();
+	
+	ObjectLoader OBJ;
+	OBJ.LoadObjVertFromFile(OBJ.m_objFilePath, mesh.vertices, mesh.indices);
+	obj = new GameObject(0.0f,0.0f,30.0f, aspectRatio, m_camera, mesh);
+
+	gameObjects.push_back(obj);
 }
 
 
