@@ -10,8 +10,8 @@ public:
 
 namespace MeshData
 {
-	Mesh getTriangle();
-	Mesh getQuad();
+	//Mesh getTriangle();
+	//Mesh getQuad();
 	Mesh getCube();
 
 	Mesh getCustomModel(); // start file dialog here for custom model
