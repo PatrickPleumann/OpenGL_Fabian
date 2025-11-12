@@ -81,63 +81,63 @@ int ObjectLoader::LoadObjVertFromFile(std::string _objName, std::vector<Vertex>&
 	return 0;
 
 }
-/// <summary>
-/// Loads material properties from an OBJ file using Assimp and applies them to the provided Material object.
-/// Retrieves ambient, diffuse, specular colors, and shininess. 
-/// </summary>
-/// <param name="a_matName">Material name to be loaded from the OBJ Folder</param>
-/// <param name="a_material">Material where the loaded Data is being stored in</param>
-/// <returns> Returns 0 on success or -1 if loading fails.</returns>
-//int ObjectLoader::LoadMaterialFromFile(std::string a_matName, Material& a_material)
-//{
-//	const C_STRUCT aiScene* tmpScene = aiImportFile(m_objFilePath.c_str(),
-//		aiProcess_Triangulate |
-//		aiProcess_JoinIdenticalVertices |
-//		aiProcess_FlipUVs |
-//		aiProcess_CalcTangentSpace);
-//
-//	if (tmpScene == nullptr)
-//	{
-//		std::cerr << "Loading Material: " << a_matName << " failed";
-//		return -1;
-//	}
-//
-//	const C_STRUCT aiMaterial* aimateial = tmpScene->mMaterials[tmpScene->mMeshes[0]->mMaterialIndex];
-//
-//	aiColor4D tmpColor;
-//	float tmpvalue;
-//
-//	if (AI_SUCCESS == aiGetMaterialColor(aimateial, AI_MATKEY_COLOR_AMBIENT, &tmpColor))
-//	{
-//		a_material.SetAmbient(glm::vec3(tmpColor.r, tmpColor.g, tmpColor.b));
-//	}
-//	else
-//	{
-//		std::cout << " Error fetching Ambient Color from Material Load" << std::endl;
-//	}
-//	if (AI_SUCCESS == aiGetMaterialColor(aimateial, AI_MATKEY_COLOR_DIFFUSE, &tmpColor))
-//	{
-//		a_material.SetDiffuse(glm::vec3(tmpColor.r, tmpColor.g, tmpColor.b));
-//	}
-//	else
-//	{
-//		std::cout << " Error fetching Diffuse Color from Material Load" << std::endl;
-//	}
-//	if (AI_SUCCESS == aiGetMaterialColor(aimateial, AI_MATKEY_COLOR_SPECULAR, &tmpColor))
-//	{
-//		a_material.SetSpecular(glm::vec3(tmpColor.r, tmpColor.g, tmpColor.b));
-//	}
-//	else
-//	{
-//		std::cout << " Error fetching Specular Color from Material Load" << std::endl;
-//	}
-//	if (AI_SUCCESS == aiGetMaterialFloat(aimateial, AI_MATKEY_SHININESS, &tmpvalue))
-//	{
-//		a_material.SetShininess(tmpvalue);
-//	}
-//	else
-//	{
-//		std::cout << " Error fetching Shiniess from Material Load" << std::endl;
-//	}
-//	return 0;
-//}
+ //<summary>
+ //Loads material properties from an OBJ file using Assimp and applies them to the provided Material object.
+ //Retrieves ambient, diffuse, specular colors, and shininess. 
+ //</summary>
+ //<param name="a_matName">Material name to be loaded from the OBJ Folder</param>
+ //<param name="a_material">Material where the loaded Data is being stored in</param>
+ //<returns> Returns 0 on success or -1 if loading fails.</returns>
+int ObjectLoader::LoadMaterialFromFile(std::string a_matName, Material& a_material)
+{
+	const C_STRUCT aiScene* tmpScene = aiImportFile(m_objFilePath.c_str(),
+		aiProcess_Triangulate |
+		aiProcess_JoinIdenticalVertices |
+		aiProcess_FlipUVs |
+		aiProcess_CalcTangentSpace);
+
+	if (tmpScene == nullptr)
+	{
+		std::cerr << "Loading Material: " << a_matName << " failed";
+		return -1;
+	}
+
+	const C_STRUCT aiMaterial* aimateial = tmpScene->mMaterials[tmpScene->mMeshes[0]->mMaterialIndex];
+
+	aiColor4D tmpColor;
+	float tmpvalue;
+
+	//if (AI_SUCCESS == aiGetMaterialColor(aimateial, AI_MATKEY_COLOR_AMBIENT, &tmpColor))
+	//{
+	//	a_material.SetAmbient(glm::vec3(tmpColor.r, tmpColor.g, tmpColor.b));
+	//}
+	//else
+	//{
+	//	std::cout << " Error fetching Ambient Color from Material Load" << std::endl;
+	//}
+	//if (AI_SUCCESS == aiGetMaterialColor(aimateial, AI_MATKEY_COLOR_DIFFUSE, &tmpColor))
+	//{
+	//	a_material.SetDiffuse(glm::vec3(tmpColor.r, tmpColor.g, tmpColor.b));
+	//}
+	//else
+	//{
+	//	std::cout << " Error fetching Diffuse Color from Material Load" << std::endl;
+	//}
+	//if (AI_SUCCESS == aiGetMaterialColor(aimateial, AI_MATKEY_COLOR_SPECULAR, &tmpColor))
+	//{
+	//	a_material.SetSpecular(glm::vec3(tmpColor.r, tmpColor.g, tmpColor.b));
+	//}
+	//else
+	//{
+	//	std::cout << " Error fetching Specular Color from Material Load" << std::endl;
+	//}
+	//if (AI_SUCCESS == aiGetMaterialFloat(aimateial, AI_MATKEY_SHININESS, &tmpvalue))
+	//{
+	//	a_material.SetShininess(tmpvalue);
+	//}
+	//else
+	//{
+	//	std::cout << " Error fetching Shiniess from Material Load" << std::endl;
+	//}
+	return 0;
+}
