@@ -10,11 +10,9 @@ GameObject::GameObject( float _posX, float _posY, float _posZ, float _aspectRati
 
 	model = Model
 	{
-		.m_vertexBuffer = VertexBuffer{_mesh.vertices, _mesh.indices},
+		.m_vertexBuffer = VertexBuffer{mesh->vertices, mesh->indices},
 		.m_modelTransform = glm::translate(glm::vec3{_posX, _posY, _posZ})
 	};
-
-	shaderProgram = BloodWallShader{ vertexShader, fragmentShader };
 }
 
 GameObject::GameObject(float _posX,float _posY,float _posZ,float _aspectRatio, Camera _camera)
@@ -28,8 +26,6 @@ GameObject::GameObject(float _posX,float _posY,float _posZ,float _aspectRatio, C
 		.m_vertexBuffer = VertexBuffer{mesh->vertices, mesh->indices},
 		.m_modelTransform = glm::translate(glm::vec3{_posX, _posY, _posZ})
 	};
-
-	shaderProgram = BloodWallShader{ vertexShader, fragmentShader };
 }
 
 GameObject::~GameObject() {}

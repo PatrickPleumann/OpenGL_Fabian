@@ -11,12 +11,13 @@
 
 void Viewer3D::onCreate()
 {
+	m_skyBox = Skybox();
+
 	ObjectLoader OBJ;
 	OBJ.LoadObjVertFromFile(OBJ.m_objFilePath, mesh.vertices, mesh.indices);
 	GameObject* obj = new GameObject(0.0f,0.0f,20.0f, aspectRatio, m_camera, mesh);
 	gameObjects.push_back(obj);
 
-	m_skyBox = Skybox();
 }
 
 

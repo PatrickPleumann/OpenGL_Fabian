@@ -29,10 +29,10 @@ public:
 	{
 		.Position = {0.0f,0.0f,0.0f},
 		.Rotation = {0.0f,0.0f,0.0f},
-		.Scale = {0.1f, 0.1f, 0.1f}
+		.Scale = {1.0f, 1.0f, 1.0f}
 	};
 
-	std::optional<BloodWallShader> shaderProgram;
+	std::optional<BloodWallShader> shaderProgram = BloodWallShader{vertexShader, fragmentShader};
 
 	std::optional<Texture> texture = Texture{ ".\\assets\\Cracks.png" };
 	std::optional<Texture> texture2 = Texture{ ".\\assets\\StoneWall.png" };

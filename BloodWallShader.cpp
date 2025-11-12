@@ -23,9 +23,7 @@ BloodWallShader::BloodWallShader(const Shader& vertexShader, const Shader& fragm
 
 void BloodWallShader::use() const
 {
-
 	glUseProgram(*m_id);
-	//hier könnte man noch delta time per glUniformMatrix1f übergeben >> nice!
 }
 
 void BloodWallShader::addCameraTransform(const glm::mat4& viewTransform, const glm::mat4& projectionTransform, const glm::vec3& cameraPos)

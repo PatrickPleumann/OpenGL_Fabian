@@ -16,7 +16,7 @@ float pulseMin = -0.25;
 float pulseMax = 0.25;
 float pulseStrengthMin = 1 / 3;
 float pulseStrengthMax = 1 / 7;
-vec4 baseWallColor = {0.372549, 0.345098, 0.3058823, 1.0};
+
 
 uniform vec4 lightColor = {1.0f,1.0f,1.0f,1.0f};
 uniform vec3 lightPos = {10.0, 5.0, 10.0};
@@ -30,6 +30,7 @@ uniform float pulsatingSpeed = 5.0;
 
 const vec2 size = vec2(2.0,0.0);
 const ivec3 off = ivec3(-1,0,1) ;
+vec4 baseWallColor = vec4(0.372549, 0.345098, 0.3058823, 1.0);
 
 vec4 getheightFromCracks(vec4 _wave, float _sinTime)
 {
