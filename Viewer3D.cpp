@@ -13,7 +13,7 @@ void Viewer3D::onCreate()
 {
 	ObjectLoader OBJ;
 	OBJ.LoadObjVertFromFile(OBJ.m_objFilePath, mesh.vertices, mesh.indices);
-	GameObject* obj = new GameObject(0.0f,0.0f,30.0f, aspectRatio, m_camera, mesh);
+	GameObject* obj = new GameObject(0.0f,0.0f,20.0f, aspectRatio, m_camera, mesh);
 	gameObjects.push_back(obj);
 
 	m_skyBox = Skybox();
@@ -117,7 +117,7 @@ void Viewer3D::InitializeGameObjects(GameObject& _obj, float _ascectRatio, float
 	_obj.model->m_vertexBuffer.bind();
 	_obj.shaderProgram->setModelTransform(_obj.model->m_modelTransform);
 	//_obj.model->m_modelTransform = glm::rotate(_obj.model->m_modelTransform, glm::radians(20 * _deltaTime), glm::vec3{ 1.0f,1.0f,1.0f });
-	//_obj.model->m_modelTransform = glm::rotate(_obj.model->m_modelTransform, glm::radians(20 *  _deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
+	_obj.model->m_modelTransform = glm::rotate(_obj.model->m_modelTransform, glm::radians(20 *  _deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
 	if (_obj.texture)
 	{
 		_obj.texture->bind(*_obj.shaderProgram, "cracksTexture", 0);
