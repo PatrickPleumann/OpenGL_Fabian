@@ -57,6 +57,9 @@
     <ClCompile Include="ObjectLoader.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="BloodWallShader.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.hpp">
@@ -110,6 +113,9 @@
     <ClInclude Include="GlobalShader.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="BloodWallShader.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="VertexShader.glsl" />
@@ -117,5 +123,6 @@
     <None Include="FragmentShader_Phong.glsl" />
     <None Include="SkyboxVertexShader.glsl" />
     <None Include="SkyboxFragmentShader.glsl" />
+    <None Include="BloodWallShader.glsl" />
   </ItemGroup>
 </Project>

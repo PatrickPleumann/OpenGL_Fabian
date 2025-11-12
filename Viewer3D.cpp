@@ -120,10 +120,12 @@ void Viewer3D::InitializeGameObjects(GameObject& _obj, float _ascectRatio, float
 
 	_obj.model->m_vertexBuffer.bind();
 	_obj.shaderProgram->setModelTransform(_obj.model->m_modelTransform);
-	_obj.model->m_modelTransform = glm::rotate(_obj.model->m_modelTransform, glm::radians(20 * _deltaTime), glm::vec3{ 1.0f,1.0f,1.0f });
+	//_obj.model->m_modelTransform = glm::rotate(_obj.model->m_modelTransform, glm::radians(20 * _deltaTime), glm::vec3{ 1.0f,1.0f,1.0f });
+	_obj.model->m_modelTransform = glm::rotate(_obj.model->m_modelTransform, glm::radians(20 *  _deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
 	if (_obj.texture)
 	{
-		_obj.texture->bind(*_obj.shaderProgram, "baseColorTexture", 0);
+		_obj.texture->bind(*_obj.shaderProgram, "cracksTexture", 0);
+		_obj.texture2->bind(*_obj.shaderProgram, "normalTexture", 1);
 	}
 	glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(_obj.model->m_vertexBuffer.getIndexCount()), GL_UNSIGNED_INT, 0);
 

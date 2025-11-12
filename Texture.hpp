@@ -2,13 +2,14 @@
 #include <string>
 #include "UniqueResource.hpp"
 
-class ShaderProgram;
+
+class BloodWallShader;
 
 class Texture
 {
 public:
 	Texture(const std::string& path);
-	void bind(const ShaderProgram& shader, const std::string& uniformName, const int textureUnit);
+	void bind(const BloodWallShader& shader, const std::string& uniformName, const int textureUnit);
 
 private:
 	UniqueResource m_id

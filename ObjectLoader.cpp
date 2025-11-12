@@ -1,13 +1,6 @@
 #include "ObjectLoader.hpp"
 
-/// <summary>
-/// Loads vertex data and indices from an OBJ file using Assimp.
-/// Fills the provided vectors with vertex positions, normals, texture coordinates, tangents, bitangents, and face indices.
-/// </summary>
-/// <param name="obj_name">Name of the Obecjt in the OBJ Folder</param>
-/// <param name="a_vertecies">vector list for the vertecies to be stored in</param>
-/// <param name="a_indicies">vector list for the indicies to be stored in</param>
-/// <returns> Returns 0 on success or -1 if the file could not be loaded.</returns>
+
 int ObjectLoader::LoadObjVertFromFile(std::string _objName, std::vector<Vertex>& _vertices, std::vector<unsigned int>& _indices)
 {
 	const C_STRUCT aiScene* tmpScene = aiImportFile(m_objFilePath.c_str(),
@@ -81,13 +74,9 @@ int ObjectLoader::LoadObjVertFromFile(std::string _objName, std::vector<Vertex>&
 	return 0;
 
 }
- //<summary>
- //Loads material properties from an OBJ file using Assimp and applies them to the provided Material object.
- //Retrieves ambient, diffuse, specular colors, and shininess. 
- //</summary>
- //<param name="a_matName">Material name to be loaded from the OBJ Folder</param>
- //<param name="a_material">Material where the loaded Data is being stored in</param>
- //<returns> Returns 0 on success or -1 if loading fails.</returns>
+
+
+
 int ObjectLoader::LoadMaterialFromFile(std::string a_matName, Material& a_material)
 {
 	const C_STRUCT aiScene* tmpScene = aiImportFile(m_objFilePath.c_str(),

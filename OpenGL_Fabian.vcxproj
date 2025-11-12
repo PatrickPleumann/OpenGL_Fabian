@@ -134,6 +134,7 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BloodWallShader.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DebugOutput.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -150,6 +151,7 @@
     <ClCompile Include="Viewer3D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BloodWallShader.hpp" />
     <ClInclude Include="Camera.hpp" />
     <ClInclude Include="DebugOutput.hpp" />
     <ClInclude Include="Engine.hpp" />
@@ -169,6 +171,7 @@
     <ClInclude Include="Viewer3D.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BloodWallShader.glsl" />
     <None Include="FragmentShader.glsl" />
     <None Include="FragmentShader_Phong.glsl" />
     <None Include="SkyboxFragmentShader.glsl" />

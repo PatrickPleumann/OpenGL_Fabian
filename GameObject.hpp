@@ -10,12 +10,14 @@
 #include "Texture.hpp"
 #include "Camera.hpp"
 #include "GlobalShader.hpp"
+#include "BloodWallShader.hpp"
 
 class GameObject
 {
 private:
 	Shader vertexShader = { "VertexShader.glsl", GL_VERTEX_SHADER };
-	Shader fragmentShader = { "FragmentShader_Phong.glsl", GL_FRAGMENT_SHADER };
+	Shader fragmentShader = { "BloodWallShader.glsl", GL_FRAGMENT_SHADER };
+	//Shader fragmentShader = { "FragmentShader_Phong.glsl", GL_FRAGMENT_SHADER };
 
 public:
 
@@ -30,9 +32,11 @@ public:
 		.Scale = {1.0f, 1.0f, 1.0f}
 	};
 
-	std::optional<ShaderProgram> shaderProgram;
+	std::optional<BloodWallShader> shaderProgram;
 
-	std::optional<Texture> texture = Texture{ ".\\assets\\Treebark_Normal.jpg" };
+	std::optional<Texture> texture = Texture{ ".\\assets\\Cracks.png" };
+	std::optional<Texture> texture2 = Texture{ ".\\assets\\StoneWall.png" };
+
 	std::optional<Model> model;
 	std::optional<Mesh> mesh = MeshData::getCube();
 

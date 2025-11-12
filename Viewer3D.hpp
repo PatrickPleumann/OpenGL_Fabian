@@ -25,7 +25,7 @@ private:
 
 	float aspectRatio{};
 
-	std::optional<ShaderProgram> shaderProgram;
+	std::optional<BloodWallShader> shaderProgram;
 	std::optional<Texture> m_texture;
 	std::optional<Skybox> m_skyBox;
 	std::optional<glm::vec2> m_lastMousePos;
