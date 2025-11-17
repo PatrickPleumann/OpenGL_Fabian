@@ -47,6 +47,9 @@ bool Engine::init()
 		glfwTerminate();
 		return false;
 	}
+
+
+
 	std::cout << getInfoString();
 
 #ifdef _DEBUG
@@ -74,6 +77,7 @@ void Engine::run()
 		time = now;
 
 		onUpdate(deltaTime);
+
 
 		glfwSwapBuffers(window);
 

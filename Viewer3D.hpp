@@ -32,6 +32,8 @@ private:
 
 	Mesh mesh{};
 
-	std::vector<GameObject*> gameObjects; //contains all GO´s 
+	std::vector<GameObject*> gameObjects; //contains all GO´s
+	GLuint postProcessFBO;
+
 };
 

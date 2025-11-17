@@ -18,6 +18,16 @@ void Viewer3D::onCreate()
 	GameObject* obj = new GameObject(0.0f,0.0f,20.0f, aspectRatio, m_camera, mesh);
 	gameObjects.push_back(obj);
 
+	//glGenFramebuffers(1, &postProcessFBO);
+	//glBindFramebuffer(GL_FRAMEBUFFER, postProcessFBO);
+	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//if (glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE)
+	//{
+	//	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	//	glDeleteFramebuffers(1, &postProcessFBO);
+	//}
+
+
 }
 
 
