@@ -9,33 +9,31 @@
 #include "ObjectLoader.hpp"
 
 
+
 void Viewer3D::onCreate()
 {
 	m_skyBox = Skybox();
+	//resize maybe event based?
+	winSize = getWindowSize();
 
 	ObjectLoader OBJ;
 	OBJ.LoadObjVertFromFile(OBJ.m_objFilePath, mesh.vertices, mesh.indices);
-	GameObject* obj = new GameObject(0.0f,0.0f,20.0f, aspectRatio, m_camera, mesh);
+	GameObject* obj = new GameObject(0.0f, 0.0f, 20.0f, aspectRatio, m_camera, mesh);
 	gameObjects.push_back(obj);
 
-	//glGenFramebuffers(1, &postProcessFBO);
-	//glBindFramebuffer(GL_FRAMEBUFFER, postProcessFBO);
-	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	//if (glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE)
-	//{
-	//	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-	//	glDeleteFramebuffers(1, &postProcessFBO);
-	//}
-
+	ppFramebuffer = new FrameBuffer(winSize);
 
 }
 
 
 void Viewer3D::onUpdate(float deltaTime)
 {
-	const auto winSize = getWindowSize();
+	winSize = getWindowSize();
 	aspectRatio = winSize.x / winSize.y;
 
+
+	ppFramebuffer->bind();
+	
 	handleInput(deltaTime);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -50,7 +48,6 @@ void Viewer3D::onUpdate(float deltaTime)
 	}
 }
 
-//on window Resize event to re-calculate aspect ratio
 void Viewer3D::handleInput(float deltaTime)
 {
 	//encapsulate GLWF_keys into separate class 
@@ -100,7 +97,7 @@ void Viewer3D::handleInput(float deltaTime)
 	if (getMouseButton(0))    // to only move when left mouse button is clicked!
 	{
 		auto offset = *m_lastMousePos - mousePos;
-		m_camera.yaw += -offset.x * deltaTime * angularSpeed;                             
+		m_camera.yaw += -offset.x * deltaTime * angularSpeed;
 		m_camera.pitch += offset.y * deltaTime * angularSpeed;
 
 		m_camera.pitch = glm::clamp(m_camera.pitch, -89.0f, 89.0f);
@@ -128,7 +125,7 @@ void Viewer3D::InitializeGameObjects(GameObject& _obj, float _ascectRatio, float
 	_obj.model->m_vertexBuffer.bind();
 	_obj.shaderProgram->setModelTransform(_obj.model->m_modelTransform);
 	//_obj.model->m_modelTransform = glm::rotate(_obj.model->m_modelTransform, glm::radians(20 * _deltaTime), glm::vec3{ 1.0f,1.0f,1.0f });
-	_obj.model->m_modelTransform = glm::rotate(_obj.model->m_modelTransform, glm::radians(20 *  _deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
+	_obj.model->m_modelTransform = glm::rotate(_obj.model->m_modelTransform, glm::radians(20 * _deltaTime), glm::vec3{ 0.0f,1.0f,0.0f });
 	if (_obj.texture)
 	{
 		_obj.texture->bind(*_obj.shaderProgram, "cracksTexture", 0);

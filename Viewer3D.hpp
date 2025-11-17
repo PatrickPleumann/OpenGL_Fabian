@@ -8,6 +8,7 @@
 #include "Texture.hpp"
 #include "Skybox.hpp"
 #include "GameObject.hpp"
+#include "FrameBuffer.h"
 
 class Viewer3D : public Engine
 {
@@ -23,17 +24,22 @@ private:
 	const float speed = { 10.0f };
 	const float angularSpeed = { 20.0f };
 
+	glm::vec2 winSize{};
 	float aspectRatio{};
 
 	std::optional<BloodWallShader> shaderProgram;
 	std::optional<Texture> m_texture;
 	std::optional<Skybox> m_skyBox;
 	std::optional<glm::vec2> m_lastMousePos;
+	FrameBuffer* ppFramebuffer;
 
 	Mesh mesh{};
 
 	std::vector<GameObject*> gameObjects; //contains all GO´s
 	GLuint postProcessFBO;
+	GLuint fbTexture;
+	GLuint rbo;
+
 
 };
 

@@ -60,6 +60,12 @@
     <ClCompile Include="BloodWallShader.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="FrameBuffer.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="PixelShaderProgram.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.hpp">
@@ -114,6 +120,12 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="BloodWallShader.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameBuffer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="PixelShaderProgram.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
