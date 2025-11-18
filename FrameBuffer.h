@@ -3,6 +3,9 @@
 #include "glad/glad.h"
 #include "glm/glm.hpp"
 #include <iostream>
+#include "PostProcessingQuad.hpp"
+#include "Shader.hpp"
+#include "PixelShaderProgram.hpp"
 
 class FrameBuffer
 {
@@ -11,6 +14,7 @@ public:
 	void bind();
 
 private:
+	// fbo, rbo, fbt, dt
 	GLuint createFramebufferObject();
 	static void deleteFrameBuffers(GLuint _id);
 
@@ -27,5 +31,28 @@ private:
 	UniqueResource m_rbo { createRenderbufferObject(), &deleteRenderbufferObject };
 	UniqueResource m_fbt { createFramebufferTexture(), &deleteFramebufferTexture };
 	UniqueResource m_dbt { createDepthTexture(), &deleteDepthTexture };
+
+
+
+	static GLuint createVertexArrayObject();
+	static void deleteVertexArrayObject(GLuint id);
+
+	static GLuint createBuffer();
+	static void deleteBuffer(GLuint id);
+
+	UniqueResource m_vao{ createVertexArrayObject(), &deleteVertexArrayObject };
+	UniqueResource m_vbo{ createBuffer(), &deleteBuffer }; 
+
+
+	PostProcessingQuad ppQuad{};
+
+	PixelShaderProgram pixelShader =
+	{
+		{ "FB_VertexShader.glsl", GL_VERTEX_SHADER },
+		{ "FB_FragmentShader.glsl", GL_FRAGMENT_SHADER }
+	};
+
+	GLenum attachments[1] = { GL_COLOR_ATTACHMENT0 };
+
 };
 

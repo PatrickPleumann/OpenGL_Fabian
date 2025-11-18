@@ -10,7 +10,7 @@ public:
 
 private:
 	UniqueResource pixelShader;
-
+	GLuint texID{};
 };
 
 

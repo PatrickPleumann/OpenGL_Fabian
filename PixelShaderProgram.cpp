@@ -10,6 +10,8 @@ PixelShaderProgram::PixelShaderProgram(const Shader& vertex, const Shader& fragm
 
 	glDetachShader(*pixelShader, vertex.get());
 	glDetachShader(*pixelShader, fragment.get());
+
+	texID = glGetUniformLocation(*pixelShader, "screenTexture");
 }
 
 void PixelShaderProgram::bind()

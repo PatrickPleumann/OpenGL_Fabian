@@ -164,6 +164,7 @@
     <ClInclude Include="Mesh.hpp" />
     <ClInclude Include="Model.hpp" />
     <ClInclude Include="PixelShaderProgram.hpp" />
+    <ClInclude Include="PostProcessingQuad.hpp" />
     <ClInclude Include="Shader.hpp" />
     <ClInclude Include="ShaderProgram.hpp" />
     <ClInclude Include="Skybox.hpp" />
@@ -176,6 +177,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="BloodWallShader.glsl" />
+    <None Include="FB_FragmentShader.glsl" />
+    <None Include="FB_VertexShader.glsl" />
     <None Include="FragmentShader.glsl" />
     <None Include="FragmentShader_Phong.glsl" />
     <None Include="SkyboxFragmentShader.glsl" />

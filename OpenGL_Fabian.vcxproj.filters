@@ -128,6 +128,9 @@
     <ClInclude Include="PixelShaderProgram.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="PostProcessingQuad.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="VertexShader.glsl" />
@@ -136,5 +139,7 @@
     <None Include="SkyboxVertexShader.glsl" />
     <None Include="SkyboxFragmentShader.glsl" />
     <None Include="BloodWallShader.glsl" />
+    <None Include="FB_VertexShader.glsl" />
+    <None Include="FB_FragmentShader.glsl" />
   </ItemGroup>
 </Project>

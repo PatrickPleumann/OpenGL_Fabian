@@ -31,14 +31,14 @@ void Viewer3D::onUpdate(float deltaTime)
 	winSize = getWindowSize();
 	aspectRatio = winSize.x / winSize.y;
 
-
-	ppFramebuffer->bind();
 	
 	handleInput(deltaTime);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	RenderGameObjects(deltaTime);
+
+	ppFramebuffer->bind();
 
 	if (m_skyBox)
 	{

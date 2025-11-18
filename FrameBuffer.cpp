@@ -27,14 +27,30 @@ FrameBuffer::FrameBuffer(const glm::vec2& _winSize)
 		std::cout << "Framebuffer Error: " << fboStatus << std::endl;
 	}
 
+	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+	glEnable(GL_DEPTH_TEST);
+	glNamedFramebufferDrawBuffers(*m_fbo, 1, attachments);
+
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+	glBindVertexArray(*m_vao);
+	glBindBuffer(GL_ARRAY_BUFFER, *m_vbo);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(ppQuad.rectangleVertices), &ppQuad.rectangleVertices, GL_STATIC_DRAW);
+	
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
+	glEnableVertexAttribArray(1); 
+
+
 }
 
 void FrameBuffer::bind()
 {
-	glBindFramebuffer(GL_FRAMEBUFFER, *m_fbo);
-	glEnable(GL_DEPTH_TEST);
 
+	glBindFramebuffer(GL_FRAMEBUFFER, *m_fbo);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	pixelShader.bind();
 }
 
 GLuint FrameBuffer::createFramebufferObject()
@@ -83,4 +99,28 @@ GLuint FrameBuffer::createDepthTexture()
 void FrameBuffer::deleteDepthTexture(GLuint _id)
 {
 	glDeleteTextures(1, &_id);
+}
+
+GLuint FrameBuffer::createVertexArrayObject()
+{
+	GLuint id;
+	glGenVertexArrays(1, &id);
+	return id;
+}
+
+void FrameBuffer::deleteVertexArrayObject(GLuint _id)
+{
+	glDeleteVertexArrays(1,&_id);
+}
+
+GLuint FrameBuffer::createBuffer()
+{
+	GLuint id;
+	glGenBuffers(1, &id);
+	return id;
+}
+
+void FrameBuffer::deleteBuffer(GLuint _id)
+{
+	glDeleteBuffers(1, &_id);
 }
