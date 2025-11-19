@@ -4,6 +4,7 @@
 VertexBuffer::VertexBuffer(const std::vector<Vertex>& vertices)
 {
 	glBindVertexArray(*m_vao);
+
 	glBindBuffer(GL_ARRAY_BUFFER, *m_vbo);
 	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), vertices.data(), GL_STATIC_DRAW);
 

@@ -17,7 +17,6 @@ float pulseMax = 0.25;
 float pulseStrengthMin = 1 / 3;
 float pulseStrengthMax = 1 / 7;
 
-
 uniform vec4 lightColor = {1.0f,1.0f,1.0f,1.0f};
 uniform vec3 lightPos = {10.0, 5.0, 10.0};
 uniform vec3 viewPos;

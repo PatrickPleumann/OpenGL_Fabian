@@ -16,9 +16,6 @@ uniform mat4 modelTransform;
 uniform mat4 viewTransformation;
 uniform mat4 projectionTransformation;
 
-
-
-
 void main()
 { 
 	//matrices which stands on the very right is the first one to be multiplicated
