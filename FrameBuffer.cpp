@@ -29,20 +29,19 @@ FrameBuffer::FrameBuffer(const glm::vec2& _winSize)
 
 	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 	glEnable(GL_DEPTH_TEST);
+
 	glNamedFramebufferDrawBuffers(*m_fbo, 1, attachments);
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 	glBindVertexArray(*m_vao);
 	glBindBuffer(GL_ARRAY_BUFFER, *m_vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(ppQuad.rectangleVertices), &ppQuad.rectangleVertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, ppQuad.rectangleVertices.size() * (sizeof(float) * 4), ppQuad.rectangleVertices.data(), GL_STATIC_DRAW);
 	
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 	glEnableVertexAttribArray(1); 
-
-
 }
 
 void FrameBuffer::bind()
@@ -50,7 +49,20 @@ void FrameBuffer::bind()
 
 	glBindFramebuffer(GL_FRAMEBUFFER, *m_fbo);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+int FrameBuffer::returnIndexCount()
+{
+	return ppQuad.rectangleVertices.size();
+}
+
+void FrameBuffer::bindShaderProg()
+{
 	pixelShader.bind();
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, *m_fbt);
+	glBindVertexArray(*m_vao);
+
 }
 
 GLuint FrameBuffer::createFramebufferObject()

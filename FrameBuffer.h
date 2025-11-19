@@ -12,7 +12,10 @@ class FrameBuffer
 public:
 	FrameBuffer(const glm::vec2& _winSize);
 	void bind();
+	int returnIndexCount();
+	void bindShaderProg();
 
+	PostProcessingQuad ppQuad{};
 private:
 	// fbo, rbo, fbt, dt
 	GLuint createFramebufferObject();
@@ -44,12 +47,11 @@ private:
 	UniqueResource m_vbo{ createBuffer(), &deleteBuffer }; 
 
 
-	PostProcessingQuad ppQuad{};
 
 	PixelShaderProgram pixelShader =
 	{
-		{ "FB_VertexShader.glsl", GL_VERTEX_SHADER },
-		{ "FB_FragmentShader.glsl", GL_FRAGMENT_SHADER }
+		Shader{ "FB_VertexShader.glsl", GL_VERTEX_SHADER },
+		Shader{ "FB_FragmentShader.glsl", GL_FRAGMENT_SHADER }
 	};
 
 	GLenum attachments[1] = { GL_COLOR_ATTACHMENT0 };

@@ -33,12 +33,14 @@ void Viewer3D::onUpdate(float deltaTime)
 
 	
 	handleInput(deltaTime);
+	glEnable(GL_DEPTH_TEST);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+	ppFramebuffer->bind();
+
 	RenderGameObjects(deltaTime);
 
-	ppFramebuffer->bind();
 
 	if (m_skyBox)
 	{
@@ -46,6 +48,12 @@ void Viewer3D::onUpdate(float deltaTime)
 		m_skyBox->draw(m_camera);
 		glDepthMask(GL_TRUE);
 	}
+
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glDisable(GL_DEPTH_TEST);
+	ppFramebuffer->bindShaderProg();
+
+	glDrawArrays(GL_TRIANGLES, 0, 6);
 }
 
 void Viewer3D::handleInput(float deltaTime)
