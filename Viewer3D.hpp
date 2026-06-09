@@ -35,11 +35,21 @@ private:
 
 	Mesh mesh{};
 
-	std::vector<GameObject*> gameObjects; //contains all GO´s
+	std::vector<GameObject*> gameObjects; //contains all GOï¿½s
 	GLuint postProcessFBO;
 	GLuint fbTexture;
 	GLuint rbo;
 
+	// [BENCH] self-contained instancing benchmark (raw GL). I=instanced, O=non-instanced, P=off
+	void initBench();
+	void drawBench(const glm::mat4& view, const glm::mat4& proj);
+	int benchMode{ 0 }; // 0 = off (normal scene), 1 = instanced, 2 = non-instanced
+	bool benchInited{ false };
+	static const int benchN{ 50000 };
+	GLuint benchVAO{}, benchVBO{}, benchEBO{}, benchInstVBO{}, benchProg{};
+	GLsizei benchIndexCount{};
+	GLint benchLocView{}, benchLocProj{}, benchLocModel{}, benchLocInstanced{};
+	std::vector<glm::mat4> benchMatrices;
 
 };
 

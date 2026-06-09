@@ -48,7 +48,7 @@ bool Engine::init()
 		return false;
 	}
 
-
+	glfwSwapInterval(0); // [BENCH] vsync off -> uncapped throughput measurement
 
 	std::cout << getInfoString();
 
@@ -70,11 +70,24 @@ bool Engine::init()
 void Engine::run()
 {
 	double time{ 0.0 };
+	double fpsTimer{ 0.0 };
+	int frameCount{ 0 };
 	while (!glfwWindowShouldClose(window))
 	{
 		auto now = glfwGetTime();
 		double deltaTime = now - time;
 		time = now;
+
+		// [BENCH] rolling 1s FPS / frame-time report
+		++frameCount;
+		fpsTimer += deltaTime;
+		if (fpsTimer >= 1.0)
+		{
+			std::cout << "[BENCH] FPS: " << frameCount << " | "
+				<< (1000.0 * fpsTimer / frameCount) << " ms/frame" << std::endl;
+			frameCount = 0;
+			fpsTimer = 0.0;
+		}
 
 		onUpdate(deltaTime);
 		
