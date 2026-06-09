@@ -428,3 +428,8 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Claude Code local context files (kept local, not part of the repo)
+.claude/
+CLAUDE.md
+CLAUDE_BACKLOG.md
